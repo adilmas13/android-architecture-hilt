@@ -1,0 +1,75 @@
+ext {
+
+    //#############################
+    // GLOBAL PROJECT SETTINGS
+    //#############################
+
+    kotlin_version = '1.3.50'
+
+    appVersion = [
+            versionMajor: 1,
+            versionMinor: 0,
+            versionPatch: 0
+    ]
+
+    project = [
+            applicationId = "com.shaikh.androidarchitecture",
+            compileSdkVersion = 28,
+            buildToolsVersion = "28.0.3",
+            targetSdkVersion = 28,
+            minSdkVersion = 21, // android 5.0 and above
+            versionCode = appVersion.versionMajor * 10000 + appVersion.versionMinor * 100 + appVersion.versionPatch,
+            versionName = "$appVersion.versionMajor.$appVersion.versionMinor.$appVersion.versionPatch",
+            enableCodeShrinking = true,
+            enableDebugLogs = false,
+            enableProguard = true
+    ]
+
+    //#############################
+    // DEPENDENCIES DEFINITIONS
+    //#############################
+
+    final retrofitVersion = '2.6.1'
+    final okHttpVersion = '4.1.1'
+    final coroutinesVersion = "1.3.1"
+
+    kotlinDependencies = [
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+            core             : "androidx.core:core-ktx:1.1.0"
+    ]
+
+    androidDependencies = [
+            appcompat       : "androidx.appcompat:appcompat:1.1.0",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.3",
+            viewPager       : "androidx.viewpager2:viewpager2:1.0.0-beta04",
+            recyclerView    : "androidx.recyclerview:recyclerview:1.1.0-beta04",
+            cardView        : "androidx.cardview:cardview:1.0.0",
+            designSupport   : "com.google.android.material:material:1.1.0-alpha10",
+    ]
+
+    imageLoaderDependencies = [
+            coil: "io.coil-kt:coil:0.7.0"
+    ]
+
+    networkDependencies = [
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            rxJavaAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            okHttp3Logging       : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    ]
+
+    otherDependencies = [
+            gson: "com.google.code.gson:gson:2.8.5",
+    ]
+
+    unitTestDependencies = [
+            junit: "junit:junit:4.12"
+    ]
+
+    uiTestDependencies = [
+            runner  : "androidx.test:runner:1.2.0",
+            espresso: "androidx.test.espresso:espresso-core:3.2.0"
+    ]
+}
