@@ -1,12 +1,16 @@
 package com.shaikh.androidarchitecture
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+class MainActivity : BaseActivity<MainActivityViewModel>() {
 
-class MainActivity : AppCompatActivity() {
+    override fun getLayoutId() = R.layout.activity_main
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getViewModelClass() = MainActivityViewModel::class.java
+
+    override fun setObservers() {
     }
+
+    private fun setBaba(it: Boolean) {
+
+    }
+
 }

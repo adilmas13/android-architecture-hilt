@@ -58,7 +58,7 @@ dependencies {
     implementation networkDependencies.values()
     implementation imageLoaderDependencies.values()
     implementation otherDependencies.values()
-
+    annotationProcessor annotationProcessorDependencies.values()
     testImplementation unitTestDependencies.values()
     androidTestImplementation uiTestDependencies.values()
 
