@@ -17,6 +17,7 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
     override fun setObservers() {
         viewModel.loading.observe(this, Observer { handleLoaderVisibility(it) })
         viewModel.data.observe(this, Observer { text.text = it[0].name })
+        viewModel.errorMessage.observe(this, Observer { showToast(it) })
     }
 
     private fun handleLoaderVisibility(isVisible: Boolean) {

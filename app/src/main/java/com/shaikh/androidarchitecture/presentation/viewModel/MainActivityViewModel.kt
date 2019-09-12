@@ -11,6 +11,8 @@ class MainActivityViewModel : ViewModel() {
 
     var loading: MutableLiveData<Boolean> = MutableLiveData()
 
+    var errorMessage: MutableLiveData<String> = MutableLiveData()
+
     private val usersUseCase = UsersListUseCase()
 
     fun getUsers() {
@@ -26,5 +28,6 @@ class MainActivityViewModel : ViewModel() {
 
     private fun onApiFailure(error: Exception) {
         loading.value = false
+        errorMessage.value = error.message
     }
 }

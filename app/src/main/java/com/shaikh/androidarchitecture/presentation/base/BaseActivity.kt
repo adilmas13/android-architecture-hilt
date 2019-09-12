@@ -1,6 +1,7 @@
 package com.shaikh.androidarchitecture.presentation.base
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -27,5 +28,7 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
     private fun createViewModel() {
         viewModel = ViewModelProviders.of(this).get(getViewModelClass())
     }
+
+    fun showToast(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
 }

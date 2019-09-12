@@ -6,7 +6,11 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("api/users?page=1")
+    companion object{
+        const val GET_USERS = "api/users?page=1"
+    }
+
+    @GET(GET_USERS)
     suspend fun getUsers(): Response<UsersWrapperResponse>
 
 }
