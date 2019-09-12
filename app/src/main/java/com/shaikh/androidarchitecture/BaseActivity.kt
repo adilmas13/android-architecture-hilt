@@ -28,5 +28,4 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(getViewModelClass())
     }
 
-
 }
