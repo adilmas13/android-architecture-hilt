@@ -1,7 +1,9 @@
-package com.shaikh.androidarchitecture
+package com.shaikh.androidarchitecture.presentation.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.shaikh.androidarchitecture.domain.entities.Users
+import com.shaikh.androidarchitecture.domain.usecase.UsersListUseCase
 
 class MainActivityViewModel : ViewModel() {
 
@@ -9,11 +11,11 @@ class MainActivityViewModel : ViewModel() {
 
     var loading: MutableLiveData<Boolean> = MutableLiveData()
 
-    private val repository = UsersRepository()
+    private val usersUseCase = UsersListUseCase()
 
     fun getUsers() {
         loading.value = true
-        repository
+        usersUseCase
             .getUsers(this::onApiSuccess, this::onApiFailure)
     }
 

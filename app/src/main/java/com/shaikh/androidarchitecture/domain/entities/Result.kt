@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture
+package com.shaikh.androidarchitecture.domain.entities
 
 data class Result<out T>(val status: Int, val data: T?, val exception: Exception? = null) {
 
@@ -9,11 +9,18 @@ data class Result<out T>(val status: Int, val data: T?, val exception: Exception
 
     companion object {
         fun <T> success(data: T): Result<T> {
-            return Result(Status.SUCCESS, data)
+            return Result(
+                Status.SUCCESS,
+                data
+            )
         }
 
         fun <T> error(exception: Exception): Result<T> {
-            return Result(Status.ERROR, null, exception)
+            return Result(
+                Status.ERROR,
+                null,
+                exception
+            )
         }
     }
 }

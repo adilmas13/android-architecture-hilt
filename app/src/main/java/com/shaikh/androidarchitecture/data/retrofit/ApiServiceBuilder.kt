@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture.network
+package com.shaikh.androidarchitecture.data.retrofit
 
 import com.google.gson.Gson
 import com.shaikh.androidarchitecture.BuildConfig

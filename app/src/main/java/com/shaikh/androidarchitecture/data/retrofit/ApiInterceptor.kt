@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture.network
+package com.shaikh.androidarchitecture.data.retrofit
 
 import okhttp3.Interceptor
 import okhttp3.Request
@@ -22,8 +22,14 @@ class ApiInterceptor : Interceptor {
 
     private fun addNecessaryHeaders(request: Request): Request {
         val newBuilder = request.newBuilder()
-        newBuilder.header(HEADER_CONTENT_TYPE, CONTENT_TYPE_JSON)
-        newBuilder.header(HEADER_AUTHORIZATION, TOKEN)
+        newBuilder.header(
+            HEADER_CONTENT_TYPE,
+            CONTENT_TYPE_JSON
+        )
+        newBuilder.header(
+            HEADER_AUTHORIZATION,
+            TOKEN
+        )
         return newBuilder.build()
     }
 }

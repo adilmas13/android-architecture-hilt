@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture
+package com.shaikh.androidarchitecture.domain.entities
 
 import com.google.gson.annotations.SerializedName
 

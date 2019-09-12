@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture
+package com.shaikh.androidarchitecture.domain.exceptions
 
 import java.lang.Exception
 

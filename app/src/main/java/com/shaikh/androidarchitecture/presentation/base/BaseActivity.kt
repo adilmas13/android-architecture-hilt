@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture
+package com.shaikh.androidarchitecture.presentation.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

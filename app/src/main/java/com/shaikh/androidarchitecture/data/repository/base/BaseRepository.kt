@@ -1,26 +1,29 @@
-package com.shaikh.androidarchitecture.network.gateway
+package com.shaikh.androidarchitecture.data.repository.base
 
-import android.util.Log
 import com.google.gson.Gson
-import com.shaikh.androidarchitecture.ApiException
-import com.shaikh.androidarchitecture.ApiResponseWrapper
-import com.shaikh.androidarchitecture.Result
-import com.shaikh.androidarchitecture.network.ApiService
-import com.shaikh.androidarchitecture.network.ApiServiceBuilder
+import com.shaikh.androidarchitecture.domain.exceptions.ApiException
+import com.shaikh.androidarchitecture.domain.entities.ApiResponseWrapper
+import com.shaikh.androidarchitecture.domain.entities.Result
+import com.shaikh.androidarchitecture.data.retrofit.ApiService
+import com.shaikh.androidarchitecture.data.retrofit.ApiServiceBuilder
 import retrofit2.Response
 
-open class BaseEntityGateway {
+open class BaseRepository {
 
     open var api: ApiService = ApiServiceBuilder.service
 
-    internal fun <T, R> splitBodyAndError(response: Response<T>, parser: (T) -> R): Result<R> {
+    internal fun <T, R> parseResult(response: Response<T>, parser: (T) -> R): Result<R> {
         val responseBody = response.body()
         return if (responseBody == null) {
             val errorString = response.errorBody()?.string()
             return try {
                 val apiResponseWrapper =
                     Gson().fromJson(errorString, ApiResponseWrapper::class.java)
-                Result.error(ApiException(apiResponseWrapper.error ?: errorString))
+                Result.error(
+                    ApiException(
+                        apiResponseWrapper.error ?: errorString
+                    )
+                )
             } catch (e: Exception) {
                 Result.error(ApiException("Something went wrong"))
             }

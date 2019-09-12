@@ -1,11 +1,12 @@
-package com.shaikh.androidarchitecture
+package com.shaikh.androidarchitecture.domain.base
 
+import com.shaikh.androidarchitecture.domain.entities.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-abstract class BaseApiRepository<T> {
+abstract class UseCase<T> {
 
     abstract suspend fun makeRequest(): Result<T>
 
