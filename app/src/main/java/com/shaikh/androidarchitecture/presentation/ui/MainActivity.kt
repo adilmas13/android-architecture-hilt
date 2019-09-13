@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.shaikh.androidarchitecture.R
-import com.shaikh.androidarchitecture.presentation.ViewModelCreator
+import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
 import com.shaikh.androidarchitecture.presentation.base.BaseActivity
 import com.shaikh.androidarchitecture.presentation.viewModel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,7 +20,8 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
         loader.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-    override fun createViewModel() = ViewModelCreator(MainActivityViewModel::class.java)
+    override fun createViewModel() =
+        ViewModelCreator(MainActivityViewModel::class.java)
 
     override fun getLayoutId() = R.layout.activity_main
 

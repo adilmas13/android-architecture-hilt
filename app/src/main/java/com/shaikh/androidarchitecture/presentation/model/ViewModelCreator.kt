@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture.presentation
+package com.shaikh.androidarchitecture.presentation.model
 
 import androidx.lifecycle.ViewModelProvider
 

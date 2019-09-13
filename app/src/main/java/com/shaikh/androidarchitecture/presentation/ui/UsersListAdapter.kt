@@ -10,7 +10,7 @@ import com.shaikh.androidarchitecture.domain.entities.Users
 import com.shaikh.androidarchitecture.presentation.utilities.inflate
 import kotlinx.android.synthetic.main.adapter_user.view.*
 
-class UsersListAdapter(val list: List<Users>) :
+class UsersListAdapter(private val list: List<Users>) :
     RecyclerView.Adapter<UsersListAdapter.UsersListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UsersListViewHolder(parent.inflate(R.layout.adapter_user))

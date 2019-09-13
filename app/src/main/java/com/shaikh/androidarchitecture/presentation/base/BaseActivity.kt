@@ -6,7 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import com.shaikh.androidarchitecture.presentation.ViewModelCreator
+import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
 
 abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
