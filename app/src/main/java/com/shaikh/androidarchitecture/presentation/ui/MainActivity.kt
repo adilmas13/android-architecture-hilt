@@ -26,7 +26,7 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun setObservers() {
         viewModel.loading.observe(this, Observer { handleLoaderVisibility(it) })
-        viewModel.data.observe(this, Observer { text.text = it[0].name })
+        viewModel.data.observe(this, Observer { rvUsers.adapter = UsersListAdapter(it) })
         viewModel.errorMessage.observe(this, Observer { showToast(it) })
     }
 }
