@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture.presentation.viewModel
+package com.shaikh.androidarchitecture.presentation.ui.home
 
 import androidx.lifecycle.ViewModel
 

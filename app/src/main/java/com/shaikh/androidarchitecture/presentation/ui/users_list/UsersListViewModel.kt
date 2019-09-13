@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture.presentation.ui.home.users_list
+package com.shaikh.androidarchitecture.presentation.ui.users_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
