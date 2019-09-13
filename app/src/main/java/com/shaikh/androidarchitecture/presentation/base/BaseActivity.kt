@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
+import com.shaikh.androidarchitecture.presentation.ViewModelCreator
 
 abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
@@ -16,17 +17,18 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
     abstract fun setObservers()
 
-    abstract fun getViewModelClass(): Class<M>
+    abstract fun createViewModel(): ViewModelCreator<M>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
-        createViewModel()
+        generateViewModel()
         setObservers()
     }
 
-    private fun createViewModel() {
-        viewModel = ViewModelProviders.of(this).get(getViewModelClass())
+    private fun generateViewModel() {
+        val creator = createViewModel()
+        viewModel = ViewModelProviders.of(this, creator.factory).get(creator.type)
     }
 
     fun showToast(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
