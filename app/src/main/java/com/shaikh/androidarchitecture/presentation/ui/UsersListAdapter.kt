@@ -9,8 +9,9 @@ import com.shaikh.androidarchitecture.presentation.utilities.Imagify
 import com.shaikh.androidarchitecture.presentation.utilities.inflate
 import kotlinx.android.synthetic.main.adapter_user.view.*
 
-class UsersListAdapter(private val list: List<Users>) :
+class UsersListAdapter(private val list: List<Users>, val userClickListener: OnUserClickListener) :
     RecyclerView.Adapter<UsersListAdapter.UsersListViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UsersListViewHolder(parent.inflate(R.layout.adapter_user))
@@ -31,5 +32,13 @@ class UsersListAdapter(private val list: List<Users>) :
 
     override fun getItemCount() = list.size
 
-    inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener { userClickListener?.onUserClicked(list[layoutPosition].id) }
+        }
+    }
+}
+
+interface OnUserClickListener {
+    fun onUserClicked(id: Int)
 }

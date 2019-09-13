@@ -9,5 +9,14 @@
         android:id="@+id/usersListFragment"
         android:name="com.shaikh.androidarchitecture.presentation.ui.users_list.UsersListFragment"
         android:label="users_list_fragment"
-        tools:layout="@layout/users_list_fragment" />
+        tools:layout="@layout/users_list_fragment" >
+        <action
+            android:id="@+id/action_usersListFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.shaikh.androidarchitecture.presentation.ui.user_detail.UserDetailFragment"
+        android:label="user_detail_fragment"
+        tools:layout="@layout/user_detail_fragment" />
 </navigation>
