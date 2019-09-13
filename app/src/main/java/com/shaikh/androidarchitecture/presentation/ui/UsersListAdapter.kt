@@ -11,10 +11,9 @@ import kotlinx.android.synthetic.main.adapter_user.view.*
 
 class UsersListAdapter(private val list: List<Users>) :
     RecyclerView.Adapter<UsersListAdapter.UsersListViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UsersListViewHolder(parent.inflate(R.layout.adapter_user))
-
-    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: UsersListViewHolder, position: Int) {
         val data = list[position]
@@ -29,6 +28,8 @@ class UsersListAdapter(private val list: List<Users>) :
             }
         }
     }
+
+    override fun getItemCount() = list.size
 
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }
