@@ -13,12 +13,10 @@ import kotlinx.android.synthetic.main.users_list_fragment.*
 
 
 class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListener {
-    override fun onUserClicked(id: Int) {
-        findNavController().navigate(R.id.action_usersListFragment_to_userDetailFragment)
-    }
 
-    companion object {
-        fun newInstance() = UsersListFragment()
+    override fun onUserClicked(id: Int) {
+        val action = UsersListFragmentDirections.showUserDetails(id)
+        findNavController().navigate(action)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -28,7 +26,7 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
 
     override fun getLayoutId() = R.layout.users_list_fragment
 
-    override fun setObservers() {
+    override fun subscribeToObservers() {
         viewModel.loading.observe(this, Observer { handleLoaderVisibility(it) })
         viewModel.data.observe(this, Observer { rvUsers.adapter = UsersListAdapter(it, this) })
         viewModel.errorMessage.observe(this, Observer { })

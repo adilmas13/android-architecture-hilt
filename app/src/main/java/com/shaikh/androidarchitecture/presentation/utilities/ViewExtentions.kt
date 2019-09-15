@@ -4,8 +4,10 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 fun View.makeVisible() {
@@ -46,6 +48,12 @@ fun ViewGroup.inflate(@LayoutRes layoutId: Int, attachToRoot: Boolean = false): 
 
 fun Activity.showToast(message: String): Toast {
     val toast = Toast.makeText(this, message, Toast.LENGTH_LONG)
+    toast.show()
+    return toast
+}
+
+fun Fragment.showToast(message: String): Toast {
+    val toast = Toast.makeText(this.context, message, Toast.LENGTH_LONG)
     toast.show()
     return toast
 }

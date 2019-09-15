@@ -16,7 +16,7 @@ interface ApiService {
     @GET(GET_USERS)
     suspend fun getUsers(): Response<UsersWrapperResponse>
 
-    @GET("$GET_USER/id")
+    @GET("$GET_USER/{id}")
     suspend fun getUserDetail(@Path("id") id: Int): Response<UserWrapperResponse>
 
 }

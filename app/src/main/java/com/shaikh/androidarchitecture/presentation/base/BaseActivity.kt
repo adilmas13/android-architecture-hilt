@@ -11,9 +11,9 @@ import com.shaikh.androidarchitecture.presentation.utilities.showToast
 
 abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
-    lateinit var viewModel: M
-
     private var toastInstance: Toast? = null
+
+    lateinit var viewModel: M
 
     @LayoutRes
     abstract fun getLayoutId(): Int

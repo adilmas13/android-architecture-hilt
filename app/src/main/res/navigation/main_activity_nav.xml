@@ -11,12 +11,16 @@
         android:label="users_list_fragment"
         tools:layout="@layout/users_list_fragment" >
         <action
-            android:id="@+id/action_usersListFragment_to_userDetailFragment"
+            android:id="@+id/show_user_details"
             app:destination="@id/userDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/userDetailFragment"
         android:name="com.shaikh.androidarchitecture.presentation.ui.user_detail.UserDetailFragment"
         android:label="user_detail_fragment"
-        tools:layout="@layout/user_detail_fragment" />
+        tools:layout="@layout/user_detail_fragment" >
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

@@ -5,23 +5,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
+import com.shaikh.androidarchitecture.presentation.utilities.showToast
 
 /**
  * A simple [Fragment] subclass.
  */
 abstract class BaseFragment<M : ViewModel> : Fragment() {
 
+    private var toastInstance: Toast? = null
+
     lateinit var viewModel: M
 
     @LayoutRes
     abstract fun getLayoutId(): Int
 
-    abstract fun setObservers()
+    abstract fun subscribeToObservers()
 
     abstract fun createViewModel(): ViewModelCreator<M>
 
@@ -35,12 +39,20 @@ abstract class BaseFragment<M : ViewModel> : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         generateViewModel()
-        setObservers()
+        subscribeToObservers()
     }
 
     private fun generateViewModel() {
         val creator = createViewModel()
         viewModel = ViewModelProviders.of(this, creator.factory).get(creator.type)
+    }
+
+    fun showMessage(message: String) {
+        toastInstance = showToast(message)
+    }
+    override fun onDestroy() {
+        toastInstance?.cancel() // cancel and toast message that is being displayed
+        super.onDestroy()
     }
 
 }
