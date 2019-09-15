@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.adapter_user.view.*
 class UsersListAdapter(private val list: List<Users>, val userClickListener: OnUserClickListener) :
     RecyclerView.Adapter<UsersListAdapter.UsersListViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UsersListViewHolder(parent.inflate(R.layout.adapter_user))
 
@@ -22,9 +21,9 @@ class UsersListAdapter(private val list: List<Users>, val userClickListener: OnU
             tvUsername.text = data.name
             when (position % 5) {
                 1 -> Imagify.loadCircularImage(ivUserProfile, data.image)
-                2 -> Imagify.loadRoundedCorners(ivUserProfile, data.image, 15f)
+                2 -> Imagify.loadRoundedCornersImage(ivUserProfile, data.image, 15f)
                 3 -> Imagify.loadBlurImage(ivUserProfile, data.image)
-                4 -> Imagify.loadGreyScale(ivUserProfile, data.image)
+                4 -> Imagify.loadGreyScaleImage(ivUserProfile, data.image)
                 else -> Imagify.loadImage(ivUserProfile, data.image)
             }
         }
@@ -34,7 +33,7 @@ class UsersListAdapter(private val list: List<Users>, val userClickListener: OnU
 
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.setOnClickListener { userClickListener?.onUserClicked(list[layoutPosition].id) }
+            itemView.setOnClickListener { userClickListener.onUserClicked(list[layoutPosition].id) }
         }
     }
 }

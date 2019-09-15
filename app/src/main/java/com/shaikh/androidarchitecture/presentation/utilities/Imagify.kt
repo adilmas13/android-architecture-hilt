@@ -28,14 +28,14 @@ object Imagify {
         }
     }
 
-    fun loadRoundedCorners(view: ImageView, url: String, radius: Float = 0f) {
+    fun loadRoundedCornersImage(view: ImageView, url: String, radius: Float = 0f) {
         view.load(url) {
             crossfade(1000)
             transformations(RoundedCornersTransformation(radius))
         }
     }
 
-    fun loadGreyScale(view: ImageView, url: String) {
+    fun loadGreyScaleImage(view: ImageView, url: String) {
         view.load(url) {
             crossfade(1000)
             transformations(GrayscaleTransformation())
