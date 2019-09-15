@@ -18,7 +18,7 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutId(): Int
 
-    abstract fun setObservers()
+    abstract fun subscribeToObservers()
 
     abstract fun createViewModel(): ViewModelCreator<M>
 
@@ -26,7 +26,7 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         generateViewModel()
-        setObservers()
+        subscribeToObservers()
     }
 
     private fun generateViewModel() {

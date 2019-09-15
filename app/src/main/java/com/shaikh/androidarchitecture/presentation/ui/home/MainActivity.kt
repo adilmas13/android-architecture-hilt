@@ -11,7 +11,7 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun getLayoutId() = R.layout.activity_main
 
-    override fun setObservers() {
+    override fun subscribeToObservers() {
 
     }
 }
