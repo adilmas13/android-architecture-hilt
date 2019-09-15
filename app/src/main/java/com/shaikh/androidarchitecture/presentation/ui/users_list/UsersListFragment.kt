@@ -29,7 +29,7 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
     override fun subscribeToObservers() {
         viewModel.loading.observe(this, Observer { handleLoaderVisibility(it) })
         viewModel.data.observe(this, Observer { rvUsers.adapter = UsersListAdapter(it, this) })
-        viewModel.errorMessage.observe(this, Observer { })
+        viewModel.errorMessage.observe(this, Observer { showMessage(it) })
     }
 
     private fun handleLoaderVisibility(isVisible: Boolean) {
@@ -37,4 +37,5 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
     }
 
     override fun createViewModel() = ViewModelCreator(UsersListViewModel::class.java)
+    
 }
