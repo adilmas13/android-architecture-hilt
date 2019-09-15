@@ -7,10 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
+import com.shaikh.androidarchitecture.presentation.utilities.showToast
 
 abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
     lateinit var viewModel: M
+
+    private var toastInstance: Toast? = null
 
     @LayoutRes
     abstract fun getLayoutId(): Int
@@ -31,6 +34,13 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this, creator.factory).get(creator.type)
     }
 
-    fun showToast(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    fun showMessage(message: String) {
+        toastInstance = showToast(message)
+    }
+
+    override fun onDestroy() {
+        toastInstance?.cancel() // cancel and toast message that is being displayed
+        super.onDestroy()
+    }
 
 }
