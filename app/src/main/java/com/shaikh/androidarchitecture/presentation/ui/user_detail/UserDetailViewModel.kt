@@ -2,7 +2,7 @@ package com.shaikh.androidarchitecture.presentation.ui.user_detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shaikh.androidarchitecture.domain.entities.Users
+import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.domain.usecase.UserDetailUseCase
 
 class UserDetailViewModel(private val userId: Int) : ViewModel() {

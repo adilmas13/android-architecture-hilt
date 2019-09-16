@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shaikh.androidarchitecture.R
-import com.shaikh.androidarchitecture.domain.entities.Users
+import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.presentation.utilities.Imagify
 import com.shaikh.androidarchitecture.presentation.utilities.inflate
 import kotlinx.android.synthetic.main.adapter_user.view.*

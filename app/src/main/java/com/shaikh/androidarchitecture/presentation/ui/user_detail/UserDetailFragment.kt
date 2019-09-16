@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.shaikh.androidarchitecture.R
-import com.shaikh.androidarchitecture.domain.entities.Users
+import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.presentation.base.BaseFragment
 import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
 import com.shaikh.androidarchitecture.presentation.utilities.Imagify

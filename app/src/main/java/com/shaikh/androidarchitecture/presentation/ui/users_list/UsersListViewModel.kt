@@ -2,7 +2,7 @@ package com.shaikh.androidarchitecture.presentation.ui.users_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shaikh.androidarchitecture.domain.entities.Users
+import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.domain.usecase.UsersListUseCase
 
 class UsersListViewModel : ViewModel() {

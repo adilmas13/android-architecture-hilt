@@ -1,4 +1,4 @@
-package com.shaikh.androidarchitecture.domain.entities
+package com.shaikh.androidarchitecture.presentation.model
 
 data class Users(
     val id: Int,
