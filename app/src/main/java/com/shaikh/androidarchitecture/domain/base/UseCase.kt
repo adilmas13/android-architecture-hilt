@@ -11,8 +11,8 @@ abstract class UseCase<T> {
     abstract suspend fun makeRequest(): Result<T>
 
     fun execute(success: (T) -> Unit, failure: (Exception) -> Unit) {
-        GlobalScope.launch(Dispatchers.IO) {
-            val result = makeRequest()
+        GlobalScope.launch {
+            val result = withContext(Dispatchers.IO) { makeRequest() }
             withContext(Dispatchers.Main) {
                 when (result.status) {
                     Result.Status.SUCCESS -> success.invoke(result.data!!)
