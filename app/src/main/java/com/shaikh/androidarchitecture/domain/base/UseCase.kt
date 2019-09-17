@@ -1,17 +1,16 @@
 package com.shaikh.androidarchitecture.domain.base
 
 import com.shaikh.androidarchitecture.domain.entities.Result
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 abstract class UseCase<T> {
 
     abstract suspend fun makeRequest(): Result<T>
 
+    private var job: Job? = null
+
     fun execute(success: (T) -> Unit, failure: (Exception) -> Unit) {
-        GlobalScope.launch {
+        job = GlobalScope.launch {
             val result = withContext(Dispatchers.IO) { makeRequest() }
             withContext(Dispatchers.Main) {
                 when (result.status) {
@@ -23,4 +22,6 @@ abstract class UseCase<T> {
             }
         }
     }
+
+    fun cancel() = job?.cancel()
 }
