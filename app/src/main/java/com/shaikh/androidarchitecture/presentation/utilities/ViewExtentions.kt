@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
@@ -56,4 +57,10 @@ fun Fragment.showToast(message: String): Toast {
     val toast = Toast.makeText(this.context, message, Toast.LENGTH_LONG)
     toast.show()
     return toast
+}
+
+fun View.setToolTip(@StringRes toolTip: Int) {
+    this.setOnLongClickListener {
+        Toast.makeText(this.context, toolTip, Toast.LENGTH_SHORT).show(); true
+    }
 }
