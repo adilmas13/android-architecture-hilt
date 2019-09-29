@@ -11,7 +11,11 @@ abstract class UseCase<T> {
 
     fun execute(success: (T) -> Unit, failure: (Exception) -> Unit) {
         job = GlobalScope.launch {
-            val result = withContext(Dispatchers.IO) { makeRequest() }
+            val result = try {
+                makeRequest()
+            } catch (e: Exception) {
+                Result.error<T>(e)
+            }
             withContext(Dispatchers.Main) {
                 when (result.status) {
                     Result.Status.SUCCESS -> success.invoke(result.data!!)
