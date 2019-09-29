@@ -14,11 +14,12 @@ object ApiServiceBuilder {
     private const val READ_TIMEOUT_SECONDS = 30L
     private const val BASE_URL = "https://reqres.in/"
     val service: ApiService by lazy {
-        val httpInterceptor = HttpLoggingInterceptor()
-        httpInterceptor.level = if (BuildConfig.DEBUG)
-            HttpLoggingInterceptor.Level.BODY
-        else
-            HttpLoggingInterceptor.Level.NONE
+        val httpInterceptor = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG)
+                HttpLoggingInterceptor.Level.BODY
+            else
+                HttpLoggingInterceptor.Level.NONE
+        }
 
         val builder = OkHttpClient.Builder()
             .addInterceptor(httpInterceptor)
@@ -33,6 +34,4 @@ object ApiServiceBuilder {
             .build()
             .create(ApiService::class.java)
     }
-
-
 }
