@@ -10,11 +10,11 @@ abstract class UseCase<T> {
     private var job: Job? = null
 
     fun execute(success: (T) -> Unit, failure: (Exception) -> Unit) {
-        job = GlobalScope.launch {
+        job = CoroutineScope(Dispatchers.IO).launch {
             val result = try {
                 makeRequest()
             } catch (e: Exception) {
-                Result.error<T>(e)
+                Result.error<T>(if (e.message.isNullOrEmpty()) Exception("Something went wrong") else e)
             }
             withContext(Dispatchers.Main) {
                 when (result.status) {
