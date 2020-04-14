@@ -16,9 +16,9 @@ ext {
 
     project = [
             applicationId = "com.shaikh.androidarchitecture",
-            compileSdkVersion = 28,
-            buildToolsVersion = "28.0.3",
-            targetSdkVersion = 28,
+            compileSdkVersion = 29,
+            buildToolsVersion = "29.0.2",
+            targetSdkVersion = 29,
             minSdkVersion = 21, // android 5.0 and above
             versionCode = appVersion.versionMajor * 10000 + appVersion.versionMinor * 100 + appVersion.versionPatch,
             versionName = "$appVersion.versionMajor.$appVersion.versionMinor.$appVersion.versionPatch",
