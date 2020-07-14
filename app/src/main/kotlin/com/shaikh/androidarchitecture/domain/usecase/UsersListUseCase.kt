@@ -4,7 +4,6 @@ import com.shaikh.androidarchitecture.data.repository.UsersRepository
 import com.shaikh.androidarchitecture.domain.base.UseCase
 import com.shaikh.androidarchitecture.domain.entities.Result
 import com.shaikh.androidarchitecture.presentation.model.Users
-import java.lang.Exception
 
 class UsersListUseCase : UseCase<List<Users>>() {
 

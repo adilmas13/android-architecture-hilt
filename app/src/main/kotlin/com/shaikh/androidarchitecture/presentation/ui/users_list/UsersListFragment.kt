@@ -9,7 +9,8 @@ import com.shaikh.androidarchitecture.presentation.base.BaseFragment
 import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
 import com.shaikh.androidarchitecture.presentation.ui.OnUserClickListener
 import com.shaikh.androidarchitecture.presentation.ui.UsersListAdapter
-import kotlinx.android.synthetic.main.users_list_fragment.*
+import kotlinx.android.synthetic.main.users_list_fragment.loader
+import kotlinx.android.synthetic.main.users_list_fragment.rvUsers
 
 class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListener {
 

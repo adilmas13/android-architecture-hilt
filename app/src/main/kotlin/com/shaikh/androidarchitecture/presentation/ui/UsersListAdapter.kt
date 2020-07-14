@@ -7,7 +7,8 @@ import com.shaikh.androidarchitecture.R
 import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.presentation.utilities.Imagify
 import com.shaikh.androidarchitecture.presentation.utilities.inflate
-import kotlinx.android.synthetic.main.adapter_user.view.*
+import kotlinx.android.synthetic.main.adapter_user.view.ivUserProfile
+import kotlinx.android.synthetic.main.adapter_user.view.tvUsername
 
 class UsersListAdapter(private val list: List<Users>, val userClickListener: OnUserClickListener) :
     RecyclerView.Adapter<UsersListAdapter.UsersListViewHolder>() {

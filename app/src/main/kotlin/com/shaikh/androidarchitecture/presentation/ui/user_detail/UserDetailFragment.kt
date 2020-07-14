@@ -8,7 +8,9 @@ import com.shaikh.androidarchitecture.presentation.base.BaseFragment
 import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
 import com.shaikh.androidarchitecture.presentation.utilities.Imagify
-import kotlinx.android.synthetic.main.user_detail_fragment.*
+import kotlinx.android.synthetic.main.user_detail_fragment.ivUserProfile
+import kotlinx.android.synthetic.main.user_detail_fragment.loader
+import kotlinx.android.synthetic.main.user_detail_fragment.tvUsername
 
 class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
 
