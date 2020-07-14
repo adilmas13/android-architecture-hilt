@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.shaikh.androidarchitecture.R
-import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.presentation.base.BaseFragment
+import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.presentation.model.ViewModelCreator
 import com.shaikh.androidarchitecture.presentation.utilities.Imagify
 import kotlinx.android.synthetic.main.user_detail_fragment.*
@@ -46,6 +46,4 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
         }
         return ViewModelCreator(UserDetailViewModel::class.java)
     }
-
-
 }

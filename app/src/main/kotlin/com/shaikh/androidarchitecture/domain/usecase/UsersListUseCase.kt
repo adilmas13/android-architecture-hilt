@@ -1,9 +1,9 @@
 package com.shaikh.androidarchitecture.domain.usecase
 
+import com.shaikh.androidarchitecture.data.repository.UsersRepository
+import com.shaikh.androidarchitecture.domain.base.UseCase
 import com.shaikh.androidarchitecture.domain.entities.Result
 import com.shaikh.androidarchitecture.presentation.model.Users
-import com.shaikh.androidarchitecture.domain.base.UseCase
-import com.shaikh.androidarchitecture.data.repository.UsersRepository
 import java.lang.Exception
 
 class UsersListUseCase : UseCase<List<Users>>() {
@@ -17,6 +17,4 @@ class UsersListUseCase : UseCase<List<Users>>() {
     fun getUsers(success: (List<Users>) -> Unit, failure: (Exception) -> Unit) {
         execute(success, failure)
     }
-
-
 }

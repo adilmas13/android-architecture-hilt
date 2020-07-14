@@ -5,13 +5,12 @@ import android.net.ConnectivityManager
 import com.shaikh.androidarchitecture.ArchitectureApplication
 import com.shaikh.androidarchitecture.data.NetworkMonitor
 
-
 class LiveConnectivityMonitor : NetworkMonitor {
 
     override fun isConnected(): Boolean {
         val cm =
             ArchitectureApplication.getContext().getSystemService(Context.CONNECTIVITY_SERVICE)
-                    as ConnectivityManager
+                as ConnectivityManager
         val activeNetwork = cm.activeNetworkInfo
         return activeNetwork != null && activeNetwork.isConnected
     }

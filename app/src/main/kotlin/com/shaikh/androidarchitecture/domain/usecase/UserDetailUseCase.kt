@@ -20,6 +20,4 @@ class UserDetailUseCase : UseCase<Users>() {
         this.id = id
         execute(success, failure)
     }
-
-
 }

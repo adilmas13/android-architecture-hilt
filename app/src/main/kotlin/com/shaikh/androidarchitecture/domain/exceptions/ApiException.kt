@@ -3,5 +3,5 @@ package com.shaikh.androidarchitecture.domain.exceptions
 import java.lang.Exception
 
 class ApiException(
-        error: String?
+    error: String?
 ) : Exception(error)

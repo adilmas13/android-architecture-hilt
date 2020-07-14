@@ -11,7 +11,6 @@ import com.shaikh.androidarchitecture.presentation.ui.OnUserClickListener
 import com.shaikh.androidarchitecture.presentation.ui.UsersListAdapter
 import kotlinx.android.synthetic.main.users_list_fragment.*
 
-
 class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListener {
 
     override fun onUserClicked(id: Int) {
@@ -37,5 +36,4 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
     }
 
     override fun createViewModel() = ViewModelCreator(UsersListViewModel::class.java)
-    
 }

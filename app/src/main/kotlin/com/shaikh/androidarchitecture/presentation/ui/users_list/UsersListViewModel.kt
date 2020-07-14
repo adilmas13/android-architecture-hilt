@@ -2,8 +2,8 @@ package com.shaikh.androidarchitecture.presentation.ui.users_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shaikh.androidarchitecture.presentation.model.Users
 import com.shaikh.androidarchitecture.domain.usecase.UsersListUseCase
+import com.shaikh.androidarchitecture.presentation.model.Users
 
 class UsersListViewModel : ViewModel() {
     var data: MutableLiveData<MutableList<Users>> = MutableLiveData()

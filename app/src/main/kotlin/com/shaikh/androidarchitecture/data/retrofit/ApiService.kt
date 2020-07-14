@@ -18,5 +18,4 @@ interface ApiService {
 
     @GET("$GET_USER/{id}")
     suspend fun getUserDetail(@Path("id") id: Int): Response<UserWrapperResponse>
-
 }

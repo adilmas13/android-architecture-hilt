@@ -13,13 +13,15 @@ abstract class PaginationScrollListener(
         super.onScrolled(recyclerView, dx, dy)
         val lastVisibleItemIndex = layoutManager.findLastVisibleItemPosition()
 
-        if ((recyclerView.adapter?.itemCount
-                ?: 0) > 0 && lastVisibleItemIndex >
-            (recyclerView.adapter?.itemCount?.minus(3) ?: 0)
-            && !isLoading && !isAllLoaded()
+        if ((
+            recyclerView.adapter?.itemCount
+                ?: 0
+            ) > 0 && lastVisibleItemIndex >
+            (recyclerView.adapter?.itemCount?.minus(3) ?: 0) &&
+            !isLoading && !isAllLoaded()
         ) {
             setLoadInProgress()
-            loadMore()               //load next set of data
+            loadMore() // load next set of data
         }
     }
 

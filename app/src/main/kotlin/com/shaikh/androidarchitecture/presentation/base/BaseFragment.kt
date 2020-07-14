@@ -1,6 +1,5 @@
 package com.shaikh.androidarchitecture.presentation.base
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +29,8 @@ abstract class BaseFragment<M : ViewModel> : Fragment() {
     abstract fun createViewModel(): ViewModelCreator<M>
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(getLayoutId(), container, false)
@@ -54,5 +54,4 @@ abstract class BaseFragment<M : ViewModel> : Fragment() {
         toastInstance?.cancel() // cancel and toast message that is being displayed
         super.onDestroy()
     }
-
 }

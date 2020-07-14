@@ -42,5 +42,4 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
         toastInstance?.cancel() // cancel and toast message that is being displayed
         super.onDestroy()
     }
-
 }
