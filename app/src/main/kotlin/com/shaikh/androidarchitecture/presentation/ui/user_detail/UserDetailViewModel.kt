@@ -22,7 +22,7 @@ class UserDetailViewModel(private val userId: Int) : ViewModel() {
 
     private fun onApiSuccess(user: Users) {
         loading.value = false
-        userData.setValue(user)
+        userData.value = user
     }
 
     private fun onApiFailure(exception: Exception) {
