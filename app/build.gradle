@@ -8,6 +8,8 @@ apply plugin: 'androidx.navigation.safeargs'
 
 apply from: '../project_settings.gradle'
 
+apply from: "../ktlint.gradle"
+
 android {
     compileSdkVersion project.compileSdkVersion
     buildToolsVersion project.buildToolsVersion
