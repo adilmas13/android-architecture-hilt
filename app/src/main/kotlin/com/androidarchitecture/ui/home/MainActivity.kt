@@ -4,7 +4,6 @@ import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseActivity
 import com.androidarchitecture.model.ViewModelCreator
 
-
 class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun createViewModel() =
