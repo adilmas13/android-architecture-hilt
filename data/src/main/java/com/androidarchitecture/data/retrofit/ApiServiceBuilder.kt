@@ -37,5 +37,4 @@ object ApiServiceBuilder {
             .build()
             .create(ApiService::class.java)
     }
-
 }
