@@ -1,6 +1,6 @@
 # Android MVVM Architecture
 
-Consist of three main layer
+Consist of three main layer (3 Project modules with dependency between them)
 - Presentation - UI (Activity, Fragment, ViewModel, ViewModelFactory)
 - Domain (Usecase)
 - Data - Data source (Rest API, Local DB)
