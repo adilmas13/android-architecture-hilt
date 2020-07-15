@@ -64,7 +64,7 @@ ext {
             coil: "io.coil-kt:coil:$coil_version"
     ]
 
-    networkDependencies = [
+    dataDependencies = [
             retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             okHttp3Logging       : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
@@ -74,6 +74,12 @@ ext {
             lifeCycle : "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     ]
 
+    domainDependencies = [
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+            gson:           "com.google.code.gson:gson:2.8.6",
+    ]
     otherDependencies = [
             gson: "com.google.code.gson:gson:2.8.6",
     ]

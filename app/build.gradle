@@ -63,10 +63,11 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation kotlinDependencies.values()
     implementation androidDependencies.values()
-    implementation networkDependencies.values()
     implementation imageLoaderDependencies.values()
     implementation otherDependencies.values()
     annotationProcessor annotationProcessorDependencies.values()

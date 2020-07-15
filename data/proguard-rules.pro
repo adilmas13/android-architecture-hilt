@@ -19,8 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
-# rules for SafeArgs
-#-keepnames class com.path.to.your.ParcelableArg
-#-keepnames class com.path.to.your.SerializableArg
-#-keepnames class com.path.to.your.EnumArg
