@@ -26,7 +26,7 @@ jobs:
 
       # Run unit tests
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest
+        run: sudo ./gradlew testDebugUnitTest
 
       # Step 4: Assemble debug test apk to send to firebase test lab
       - name: Assemble Debug Build
