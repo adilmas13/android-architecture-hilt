@@ -11,8 +11,8 @@ Reference : https://antonioleiva.com/clean-architecture-android/
 Dependencies in Use
 - LiveData + ViewModel
 - Coroutines
-- Gson (to be changed to Kotlinx serialization or moshi)
-- Retrofit
+- Kotlinx serialization (Json Serialization Deserialization)
+- Retrofit (Rest API Library)
 - Coil (Image Loader)
 
 Add On
