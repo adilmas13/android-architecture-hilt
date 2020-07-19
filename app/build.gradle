@@ -31,7 +31,8 @@ android {
         releaseDebug {
             debuggable true
             applicationIdSuffix ".releaseDebug"
-//            signingConfig signingConfigs.config
+            shrinkResources project.enableCodeShrinking
+            minifyEnabled project.enableProguard
         }
         release {
             debuggable project.enableDebugLogs
