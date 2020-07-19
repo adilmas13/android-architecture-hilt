@@ -60,17 +60,17 @@ ext {
     ]
 
     dataDependencies = [
-            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            okHttp3Logging       : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+            retrofit         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverter: "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.5.0",
+            okHttp3Logging   : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            gson             : "com.google.code.gson:gson:2.8.6"
     ]
 
     domainDependencies = [
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             kotlinx          : "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0",
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
-            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
-            gson             : "com.google.code.gson:gson:2.8.6"
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     ]
 
     unitTestDependencies = [

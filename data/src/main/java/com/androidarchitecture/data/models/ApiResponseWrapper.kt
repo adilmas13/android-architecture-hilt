@@ -1,11 +1,14 @@
 package com.androidarchitecture.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 // TODO : change this data structure based in the error response being sent by the api team
+@Serializable
 data class ApiResponseWrapper<out T>(
-    @SerializedName("status") val status: Boolean,
-    @SerializedName("data") val data: T? = null,
-    @SerializedName("error") val error: String = "",
-    @SerializedName("message") val message: String = ""
+    @SerialName("status") val status: Boolean,
+    @SerialName("data") val data: T? = null,
+    @SerialName("error") val error: String = "",
+    @SerialName("message") val message: String = ""
 )
+

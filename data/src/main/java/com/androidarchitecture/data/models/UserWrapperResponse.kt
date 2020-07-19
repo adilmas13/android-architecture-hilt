@@ -1,7 +1,9 @@
 package com.androidarchitecture.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class UserWrapperResponse(
-    @SerializedName("data") val data: UsersResponse
+    @SerialName("data") val data: UsersResponse
 )

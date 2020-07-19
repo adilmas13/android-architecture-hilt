@@ -2,11 +2,14 @@ package com.androidarchitecture.data.retrofit
 
 import com.androidarchitecture.data.BuildConfig
 import com.androidarchitecture.domain.NetworkMonitor
-import com.google.gson.Gson
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiServiceBuilder {
@@ -14,7 +17,9 @@ object ApiServiceBuilder {
     private const val CONNECT_TIMEOUT_SECONDS = 30L
     private const val READ_TIMEOUT_SECONDS = 30L
     private const val BASE_URL = "https://reqres.in/"
+    private val contentType = "application/json".toMediaType()
 
+    @OptIn(UnstableDefault::class)
     fun create(networkMonitor: NetworkMonitor): ApiService {
         val httpInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)
@@ -29,11 +34,11 @@ object ApiServiceBuilder {
             .readTimeout(READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .addInterceptor(ApiInterceptor())
             .addInterceptor(InternetConnectivityInterceptor(networkMonitor))
-
+        val json = Json(JsonConfiguration(ignoreUnknownKeys = true))
         return Retrofit.Builder()
             .client(builder.build())
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(ApiService::class.java)
     }

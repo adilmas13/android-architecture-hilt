@@ -12,6 +12,7 @@ import retrofit2.Response
 open class BaseRestApiRepository(networkMonitor: NetworkMonitor) {
 
     open var api: ApiService = ApiServiceBuilder.create(networkMonitor)
+//    private val json = Json(JsonConfiguration.Stable)
 
     internal fun <T, R> parseResult(response: Response<T>, parser: (T) -> R): Result<R> {
         return if (response.isSuccessful && response.body() !== null)
@@ -24,6 +25,7 @@ open class BaseRestApiRepository(networkMonitor: NetworkMonitor) {
         val errorString = response.errorBody()?.toString() ?: ""
         val errorObject = try {
             Gson().fromJson(errorString, ApiResponseWrapper::class.java)
+//            json.parse(ApiResponseWrapper.serializer(response.), errorString)
         } catch (e: Exception) {
             ApiResponseWrapper<Any>(
                 status = false,
