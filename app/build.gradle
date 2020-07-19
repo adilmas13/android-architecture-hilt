@@ -30,7 +30,6 @@ android {
         }
         releaseDebug {
             debuggable true
-            applicationIdSuffix ".releaseDebug"
             shrinkResources project.enableCodeShrinking
             minifyEnabled project.enableProguard
         }
