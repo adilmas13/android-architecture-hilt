@@ -17,3 +17,11 @@ Dependencies in Use
 
 Add On
 - ktlint is integrated to maintain kotlin coding standards
+- Github action to perform the following
+  - Run KtLint
+  - Run Unit test cases
+  - Build Debug Apk
+  - Save APK as a Github Artifact
+  
+All References can be found in this [wiki](https://github.com/adilmas13/android-architecture/wiki/References)
+
