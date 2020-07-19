@@ -20,7 +20,7 @@ Add On
 - Github action to perform the following
   - Run KtLint
   - Run Unit test cases
-  - Build Debug Apk
+  - Build Debug APK
   - Save APK as a Github Artifact
   
 All References can be found in this [wiki](https://github.com/adilmas13/android-architecture/wiki/References)
