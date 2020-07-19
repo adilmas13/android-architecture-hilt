@@ -1,5 +1,6 @@
-package com.shaikh.androidarchitecture
+package com.androidarchitecture
 
+import junit.framework.Assert.assertEquals
 import org.junit.Test
 
 /**

@@ -11,4 +11,3 @@ data class ApiResponseWrapper<out T>(
     @SerialName("error") val error: String = "",
     @SerialName("message") val message: String = ""
 )
-
