@@ -1,3 +1,4 @@
+![Android Workflow](https://github.com/adilmas13/android-architecture/workflows/Android%20Workflow/badge.svg)
 # Android MVVM Architecture (No Dependency injection library)
 
 Consist of three main layer (3 Project modules with dependency between them)
