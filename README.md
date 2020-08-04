@@ -1,5 +1,4 @@
-![Android Workflow](https://github.com/adilmas13/android-architecture/workflows/Android%20Workflow/badge.svg)
-# Android MVVM Architecture (No Dependency injection library)
+# Android MVVM Architecture (HILT)
 
 Consist of three main layer (3 Project modules with dependency between them)
 - Presentation - UI (Activity, Fragment, ViewModel, ViewModelFactory)
@@ -10,6 +9,7 @@ Architecture has no dependency injection library. All injections between layers 
 Reference : https://antonioleiva.com/clean-architecture-android/
 
 Dependencies in Use
+- Hilt (Dependecy Injection)
 - LiveData + ViewModel
 - Coroutines
 - Gson (to be removed) + Kotlinx serialization (Json Serialization Deserialization)
