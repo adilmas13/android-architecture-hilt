@@ -2,8 +2,10 @@ package com.androidarchitecture.ui.home
 
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseActivity
-import com.androidarchitecture.model.ViewModelCreator
+import com.androidarchitecture.helpers.ViewModelCreator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun createViewModel() =

@@ -8,14 +8,18 @@ import com.androidarchitecture.base.BaseFragment
 import com.androidarchitecture.data.repository.RestApiUsersRepository
 import com.androidarchitecture.domain.models.Users
 import com.androidarchitecture.domain.usecase.UserDetailUseCase
-import com.androidarchitecture.model.ViewModelCreator
-import com.androidarchitecture.utilities.Imagify
+import com.androidarchitecture.helpers.ViewModelCreator
+import com.androidarchitecture.utilities.ImageLoader
 import com.androidarchitecture.utilities.LiveConnectivityMonitor
-import kotlinx.android.synthetic.main.user_detail_fragment.ivUserProfile
-import kotlinx.android.synthetic.main.user_detail_fragment.loader
-import kotlinx.android.synthetic.main.user_detail_fragment.tvUsername
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.user_detail_fragment.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
+
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -33,7 +37,7 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
     }
 
     private fun showDetails(it: Users) {
-        Imagify.loadImage(ivUserProfile, it.image)
+        imageLoader.loadImage(ivUserProfile, it.image)
         tvUsername.text = it.name
     }
 
@@ -52,6 +56,8 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
                 )
             )
         }
-        return ViewModelCreator(UserDetailViewModel::class.java)
+        return ViewModelCreator(
+            UserDetailViewModel::class.java
+        )
     }
 }

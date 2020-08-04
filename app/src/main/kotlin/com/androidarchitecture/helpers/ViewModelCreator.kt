@@ -1,4 +1,4 @@
-package com.androidarchitecture.model
+package com.androidarchitecture.helpers
 
 import androidx.lifecycle.ViewModelProvider
 

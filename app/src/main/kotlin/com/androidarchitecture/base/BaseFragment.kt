@@ -9,7 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import com.androidarchitecture.model.ViewModelCreator
+import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.utilities.showToast
 
 /**

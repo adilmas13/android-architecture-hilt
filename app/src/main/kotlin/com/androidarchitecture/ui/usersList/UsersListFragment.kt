@@ -8,14 +8,20 @@ import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
 import com.androidarchitecture.data.repository.RestApiUsersRepository
 import com.androidarchitecture.domain.usecase.UsersListUseCase
-import com.androidarchitecture.model.ViewModelCreator
+import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.ui.OnUserClickListener
 import com.androidarchitecture.ui.UsersListAdapter
+import com.androidarchitecture.utilities.ImageLoader
 import com.androidarchitecture.utilities.LiveConnectivityMonitor
-import kotlinx.android.synthetic.main.users_list_fragment.loader
-import kotlinx.android.synthetic.main.users_list_fragment.rvUsers
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.users_list_fragment.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListener {
+
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     override fun onUserClicked(id: Int) {
         val action = UsersListFragmentDirections.showUserDetails(id)
@@ -31,7 +37,9 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
 
     override fun subscribeToObservers() {
         viewModel.loading.observe(this, Observer { handleLoaderVisibility(it) })
-        viewModel.data.observe(this, Observer { rvUsers.adapter = UsersListAdapter(it, this) })
+        viewModel.data.observe(
+            this,
+            Observer { rvUsers.adapter = UsersListAdapter(it, imageLoader, this) })
         viewModel.errorMessage.observe(this, Observer { showMessage(it) })
     }
 
@@ -39,14 +47,15 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
         loader.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-    override fun createViewModel() = ViewModelCreator(
-        UsersListViewModel::class.java,
-        UserListViewModelFactory(
-            UsersListUseCase(
-                repository = RestApiUsersRepository(
-                    LiveConnectivityMonitor()
+    override fun createViewModel() =
+        ViewModelCreator(
+            UsersListViewModel::class.java,
+            UserListViewModelFactory(
+                UsersListUseCase(
+                    repository = RestApiUsersRepository(
+                        LiveConnectivityMonitor()
+                    )
                 )
             )
         )
-    )
 }
