@@ -9,7 +9,6 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.utilities.showToast
 
 /**
@@ -26,7 +25,7 @@ abstract class BaseFragment<M : ViewModel> : Fragment() {
 
     abstract fun subscribeToObservers()
 
-    abstract fun createViewModel(): ViewModelCreator<M>
+    abstract fun createViewModel(): Class<M>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +42,7 @@ abstract class BaseFragment<M : ViewModel> : Fragment() {
     }
 
     private fun generateViewModel() {
-        val creator = createViewModel()
-        viewModel = ViewModelProviders.of(this, creator.factory).get(creator.type)
+        viewModel = ViewModelProviders.of(this).get(createViewModel())
     }
 
     fun showMessage(message: String) {

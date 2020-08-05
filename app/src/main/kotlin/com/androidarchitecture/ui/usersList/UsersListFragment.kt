@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
-import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.ui.OnUserClickListener
 import com.androidarchitecture.ui.UsersListAdapter
 import com.androidarchitecture.utilities.ImageLoader
@@ -44,5 +43,5 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
         loader.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-    override fun createViewModel() = ViewModelCreator(UsersListViewModel::class.java)
+    override fun createViewModel() = UsersListViewModel::class.java
 }

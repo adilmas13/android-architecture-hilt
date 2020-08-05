@@ -20,7 +20,7 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
     abstract fun subscribeToObservers()
 
-    abstract fun createViewModel(): ViewModelCreator<M>
+    abstract fun createViewModel(): Class<M>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +30,7 @@ abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
     }
 
     private fun generateViewModel() {
-        val creator = createViewModel()
-        viewModel = ViewModelProviders.of(this, creator.factory).get(creator.type)
+        viewModel = ViewModelProviders.of(this).get(createViewModel())
     }
 
     fun showMessage(message: String) {

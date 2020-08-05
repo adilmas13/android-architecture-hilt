@@ -42,13 +42,5 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
         loader.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-    override fun createViewModel(): ViewModelCreator<UserDetailViewModel> {
-        arguments?.let {
-            val args = UserDetailFragmentArgs.fromBundle(it)
-            return ViewModelCreator(UserDetailViewModel::class.java)
-        }
-        return ViewModelCreator(
-            UserDetailViewModel::class.java
-        )
-    }
+    override fun createViewModel() = UserDetailViewModel::class.java
 }
