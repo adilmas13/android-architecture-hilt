@@ -35,7 +35,8 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
         viewModel.loading.observe(this, Observer { handleLoaderVisibility(it) })
         viewModel.data.observe(
             this,
-            Observer { rvUsers.adapter = UsersListAdapter(it, imageLoader, this) })
+            Observer { rvUsers.adapter = UsersListAdapter(it, imageLoader, this) }
+        )
         viewModel.errorMessage.observe(this, Observer { showMessage(it) })
     }
 

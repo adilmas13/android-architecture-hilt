@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class ApiServiceBuilder @Inject constructor(
     private val networkMonitor: NetworkMonitor,
-    private val baseUrl:String
+    private val baseUrl: String
 ) {
 
     companion object {

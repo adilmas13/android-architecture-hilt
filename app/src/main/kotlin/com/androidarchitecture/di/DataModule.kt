@@ -16,7 +16,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(ApplicationComponent::class)
 abstract class RepositoryModule {
@@ -27,7 +26,7 @@ abstract class RepositoryModule {
 
 @Module
 @InstallIn(ApplicationComponent::class)
-object DataModule{
+object DataModule {
 
     @Provides
     @Singleton

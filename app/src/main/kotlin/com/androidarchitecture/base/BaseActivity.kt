@@ -6,7 +6,6 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.utilities.showToast
 
 abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {

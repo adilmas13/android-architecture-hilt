@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
 import com.androidarchitecture.domain.models.Users
-import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.utilities.ImageLoader
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.user_detail_fragment.*
