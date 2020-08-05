@@ -1,5 +1,6 @@
 package com.androidarchitecture.di
 
+import android.content.Context
 import com.androidarchitecture.data.repository.RetrofitUsersRepository
 import com.androidarchitecture.data.retrofit.ApiService
 import com.androidarchitecture.data.retrofit.ApiServiceBuilder
@@ -10,6 +11,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -24,8 +26,8 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideNetworkMonitor(): NetworkMonitor =
-        LiveConnectivityMonitor()
+    fun provideNetworkMonitor(@ApplicationContext context: Context): NetworkMonitor =
+        LiveConnectivityMonitor(context)
 
     @Provides
     @Singleton
