@@ -6,6 +6,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply from: '../project_settings.gradle'
 apply from: "../ktlint.gradle"
+apply plugin: 'org.jetbrains.dokka'
+
+tasks.dokkaHtml {
+    outputDirectory = "$buildDir/documentation"
+}
 
 android {
     compileSdkVersion project.compileSdkVersion
@@ -31,12 +36,12 @@ android {
                 }
             }
         }
-        releaseDebug {
-            debuggable true
-            shrinkResources project.enableCodeShrinking
-            minifyEnabled project.enableProguard
-            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
-        }
+//        releaseDebug {
+//            debuggable true
+//            shrinkResources project.enableCodeShrinking
+//            minifyEnabled project.enableProguard
+//            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
+//        }
         release {
             debuggable project.enableDebugLogs
             shrinkResources project.enableCodeShrinking
