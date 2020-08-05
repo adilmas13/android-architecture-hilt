@@ -27,6 +27,10 @@ jobs:
       # Run unit tests
       - name: Run Unit Tests
         run: sudo ./gradlew testDebugUnitTest
+      
+      # Generate Documentation
+      - name: Generate Documentation
+        run: sudo ./gradlew dokkaHtml
 
   apk:
     name: Generate APK
