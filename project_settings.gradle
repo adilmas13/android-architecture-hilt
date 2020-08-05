@@ -11,8 +11,8 @@ ext {
     hilt_version = '2.28-alpha'
 
     appVersion = [
-            versionMajor: 1,
-            versionMinor: 0,
+            versionMajor: 0,
+            versionMinor: 1,
             versionPatch: 0
     ]
 

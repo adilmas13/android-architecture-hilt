@@ -1,6 +1,7 @@
 package com.androidarchitecture.di
 
 import android.content.Context
+import com.androidarchitecture.BuildConfig
 import com.androidarchitecture.data.repository.RetrofitUsersRepository
 import com.androidarchitecture.data.retrofit.ApiService
 import com.androidarchitecture.data.retrofit.ApiServiceBuilder
@@ -37,7 +38,7 @@ object DataModule {
     @Provides
     @Singleton
     @BaseUrl
-    fun provideBaseUrl() = "https://reqres.in/"
+    fun provideBaseUrl() = BuildConfig.BASE_URL
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)

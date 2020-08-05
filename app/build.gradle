@@ -24,6 +24,7 @@ android {
         debug {
             debuggable true
             applicationIdSuffix ".debug"
+            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName = "Android-Architecture-debug_v${versionName}.apk"
@@ -34,12 +35,14 @@ android {
             debuggable true
             shrinkResources project.enableCodeShrinking
             minifyEnabled project.enableProguard
+            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
         }
         release {
             debuggable project.enableDebugLogs
             shrinkResources project.enableCodeShrinking
             minifyEnabled project.enableProguard
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName = "Android-Architecture_v${versionName}.apk"
