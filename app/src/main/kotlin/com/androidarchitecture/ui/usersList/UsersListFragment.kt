@@ -6,13 +6,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
-import com.androidarchitecture.data.repository.RestApiUsersRepository
-import com.androidarchitecture.domain.usecase.UsersListUseCase
 import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.ui.OnUserClickListener
 import com.androidarchitecture.ui.UsersListAdapter
 import com.androidarchitecture.utilities.ImageLoader
-import com.androidarchitecture.utilities.LiveConnectivityMonitor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.users_list_fragment.*
 import javax.inject.Inject
@@ -47,15 +44,5 @@ class UsersListFragment : BaseFragment<UsersListViewModel>(), OnUserClickListene
         loader.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-    override fun createViewModel() =
-        ViewModelCreator(
-            UsersListViewModel::class.java,
-            UserListViewModelFactory(
-                UsersListUseCase(
-                    repository = RestApiUsersRepository(
-                        LiveConnectivityMonitor()
-                    )
-                )
-            )
-        )
+    override fun createViewModel() = ViewModelCreator(UsersListViewModel::class.java)
 }

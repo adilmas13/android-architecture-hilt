@@ -1,6 +1,6 @@
 package com.androidarchitecture.data.repository.base
 
-import com.androidarchitecture.data.models.ApiResponseWrapper
+import com.androidarchitecture.data.entities.ApiResponseWrapperEntity
 import com.androidarchitecture.data.retrofit.ApiService
 import com.androidarchitecture.data.retrofit.ApiServiceBuilder
 import com.androidarchitecture.domain.NetworkMonitor
@@ -24,10 +24,10 @@ open class BaseRestApiRepository(networkMonitor: NetworkMonitor) {
     private fun <T> getError(response: Response<T>): ApiException {
         val errorString = response.errorBody()?.toString() ?: ""
         val errorObject = try {
-            Gson().fromJson(errorString, ApiResponseWrapper::class.java)
+            Gson().fromJson(errorString, ApiResponseWrapperEntity::class.java)
 //            json.parse(ApiResponseWrapper.serializer(response.), errorString)
         } catch (e: Exception) {
-            ApiResponseWrapper<Any>(
+            ApiResponseWrapperEntity<Any>(
                 status = false,
                 error = "Something went wrong"
             )

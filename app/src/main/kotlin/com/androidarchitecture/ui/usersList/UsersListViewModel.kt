@@ -1,11 +1,14 @@
 package com.androidarchitecture.ui.usersList
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidarchitecture.domain.models.Users
 import com.androidarchitecture.domain.usecase.UsersListUseCase
 
-class UsersListViewModel(private val usersListUseCase: UsersListUseCase) : ViewModel() {
+class UsersListViewModel @ViewModelInject constructor(
+    private val usersListUseCase: UsersListUseCase
+) : ViewModel() {
     var data: MutableLiveData<MutableList<Users>> = MutableLiveData()
 
     var loading: MutableLiveData<Boolean> = MutableLiveData()

@@ -5,12 +5,9 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
-import com.androidarchitecture.data.repository.RestApiUsersRepository
 import com.androidarchitecture.domain.models.Users
-import com.androidarchitecture.domain.usecase.UserDetailUseCase
 import com.androidarchitecture.helpers.ViewModelCreator
 import com.androidarchitecture.utilities.ImageLoader
-import com.androidarchitecture.utilities.LiveConnectivityMonitor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.user_detail_fragment.*
 import javax.inject.Inject
@@ -48,13 +45,7 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
     override fun createViewModel(): ViewModelCreator<UserDetailViewModel> {
         arguments?.let {
             val args = UserDetailFragmentArgs.fromBundle(it)
-            return ViewModelCreator(
-                UserDetailViewModel::class.java,
-                UserDetailViewModelFactory(
-                    args.userId,
-                    UserDetailUseCase(RestApiUsersRepository(LiveConnectivityMonitor()))
-                )
-            )
+            return ViewModelCreator(UserDetailViewModel::class.java)
         }
         return ViewModelCreator(
             UserDetailViewModel::class.java

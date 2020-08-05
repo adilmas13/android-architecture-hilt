@@ -4,8 +4,10 @@ import com.androidarchitecture.domain.base.UseCase
 import com.androidarchitecture.domain.models.Result
 import com.androidarchitecture.domain.models.Users
 import com.androidarchitecture.domain.repository.UserRepository
+import javax.inject.Inject
 
-class UsersListUseCase(private val repository: UserRepository) : UseCase<List<Users>>() {
+class UsersListUseCase @Inject constructor(private val repository: UserRepository) :
+    UseCase<List<Users>>() {
 
     override suspend fun makeRequest(): Result<List<Users>> {
         return repository.getUsers()

@@ -1,7 +1,7 @@
 package com.androidarchitecture.data.retrofit
 
-import com.androidarchitecture.data.models.UserWrapperResponse
-import com.androidarchitecture.data.models.UsersWrapperResponse
+import com.androidarchitecture.data.entities.UserWrapperEntity
+import com.androidarchitecture.data.entities.UsersWrapperResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,5 +17,5 @@ interface ApiService {
     suspend fun getUsers(): Response<UsersWrapperResponse>
 
     @GET("$GET_USER/{id}")
-    suspend fun getUserDetail(@Path("id") id: Int): Response<UserWrapperResponse>
+    suspend fun getUserDetail(@Path("id") id: Int): Response<UserWrapperEntity>
 }

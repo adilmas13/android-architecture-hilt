@@ -1,9 +1,9 @@
-package com.androidarchitecture.data.models
+package com.androidarchitecture.data.entities
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UserWrapperResponse(
+data class UserWrapperEntity(
     @SerialName("data") val data: UsersResponse
 )

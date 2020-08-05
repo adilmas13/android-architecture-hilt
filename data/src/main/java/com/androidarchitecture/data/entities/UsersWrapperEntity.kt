@@ -1,4 +1,4 @@
-package com.androidarchitecture.data.models
+package com.androidarchitecture.data.entities
 
 import com.androidarchitecture.domain.models.Users
 import kotlinx.serialization.SerialName

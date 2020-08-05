@@ -6,7 +6,7 @@ import com.androidarchitecture.domain.models.Result
 import com.androidarchitecture.domain.models.Users
 import com.androidarchitecture.domain.repository.UserRepository
 
-class RestApiUsersRepository(networkMonitor: NetworkMonitor) : UserRepository,
+class RetrofitUsersRepository(networkMonitor: NetworkMonitor) : UserRepository,
     BaseRestApiRepository(networkMonitor) {
 
     override suspend fun getUsers(): Result<List<Users>> {

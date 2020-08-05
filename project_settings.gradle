@@ -40,6 +40,7 @@ ext {
     final multidex_version = "2.0.1"
     final nav_version = "2.2.1"
     final coil_version = "0.9.5"
+    final hiltViewModel_version = "1.0.0-alpha01"
 
     appDependencies = [
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
@@ -59,11 +60,13 @@ ext {
             multidex         : "androidx.multidex:multidex:$multidex_version",
             coil             : "io.coil-kt:coil:$coil_version",
             lifeCycleCompiler: "androidx.lifecycle:lifecycle-compiler:$lifecycle_version",
-            hilt             : "com.google.dagger:hilt-android:$hilt_version"
+            hilt             : "com.google.dagger:hilt-android:$hilt_version",
+            hiltViewModel    : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModel_version"
     ]
 
     annotationProcessingDependencies = [
-            hilt: "com.google.dagger:hilt-android-compiler:$hilt_version"
+            hilt         : "com.google.dagger:hilt-android-compiler:$hilt_version",
+            hiltViewModel: "androidx.hilt:hilt-compiler:$hiltViewModel_version"
     ]
 
     dataDependencies = [
@@ -77,7 +80,8 @@ ext {
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             kotlinx          : "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0",
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
-            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+            javaX            : "javax.inject:javax.inject:1"
     ]
 
     unitTestDependencies = [
