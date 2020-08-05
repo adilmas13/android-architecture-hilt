@@ -1,0 +1,13 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.androidarchitecture
+com.androidarchitecture.base
+com.androidarchitecture.di
+com.androidarchitecture.helpers
+com.androidarchitecture.ui
+com.androidarchitecture.ui.home
+com.androidarchitecture.ui.userDetail
+com.androidarchitecture.ui.usersList
+com.androidarchitecture.utilities
+
