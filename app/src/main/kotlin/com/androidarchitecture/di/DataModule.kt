@@ -3,11 +3,11 @@ package com.androidarchitecture.di
 import android.content.Context
 import com.androidarchitecture.BuildConfig
 import com.androidarchitecture.data.repository.RetrofitUsersRepository
-import com.androidarchitecture.data.retrofit.ApiService
 import com.androidarchitecture.data.retrofit.ApiServiceBuilder
 import com.androidarchitecture.domain.NetworkMonitor
 import com.androidarchitecture.domain.repository.UserRepository
 import com.androidarchitecture.helpers.LiveConnectivityMonitor
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,14 +16,18 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
+
 @Module
 @InstallIn(ApplicationComponent::class)
-object DataModule {
+abstract class RepositoryModule {
 
-    @Provides
-    @Singleton
-    fun provideUserRepository(apiService: ApiService): UserRepository =
-        RetrofitUsersRepository(apiService)
+    @Binds
+    abstract fun bindUserRepository(repository: RetrofitUsersRepository): UserRepository
+}
+
+@Module
+@InstallIn(ApplicationComponent::class)
+object DataModule{
 
     @Provides
     @Singleton
