@@ -1,9 +1,11 @@
 package com.androidarchitecture.di
 
 import com.androidarchitecture.data.repository.RetrofitUsersRepository
+import com.androidarchitecture.data.retrofit.ApiService
+import com.androidarchitecture.data.retrofit.ApiServiceBuilder
 import com.androidarchitecture.domain.NetworkMonitor
 import com.androidarchitecture.domain.repository.UserRepository
-import com.androidarchitecture.utilities.LiveConnectivityMonitor
+import com.androidarchitecture.helpers.LiveConnectivityMonitor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,10 +18,16 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(networkMonitor: NetworkMonitor): UserRepository =
-        RetrofitUsersRepository(networkMonitor)
+    fun provideUserRepository(apiService: ApiService): UserRepository =
+        RetrofitUsersRepository(apiService)
 
     @Provides
     @Singleton
-    fun provideNetworkMonitor(): NetworkMonitor = LiveConnectivityMonitor()
+    fun provideNetworkMonitor(): NetworkMonitor =
+        LiveConnectivityMonitor()
+
+    @Provides
+    @Singleton
+    fun provideRetrofitApiService(networkMonitor: NetworkMonitor) =
+        ApiServiceBuilder(networkMonitor).create()
 }

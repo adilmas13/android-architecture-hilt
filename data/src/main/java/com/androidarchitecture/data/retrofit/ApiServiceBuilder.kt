@@ -11,16 +11,21 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-object ApiServiceBuilder {
+class ApiServiceBuilder @Inject constructor(
+    private val networkMonitor: NetworkMonitor
+) {
 
-    private const val CONNECT_TIMEOUT_SECONDS = 30L
-    private const val READ_TIMEOUT_SECONDS = 30L
-    private const val BASE_URL = "https://reqres.in/"
-    private val contentType = "application/json".toMediaType()
+    companion object {
+        private const val CONNECT_TIMEOUT_SECONDS = 30L
+        private const val READ_TIMEOUT_SECONDS = 30L
+        private const val BASE_URL = "https://reqres.in/"
+        private val contentType = "application/json".toMediaType()
+    }
 
     @OptIn(UnstableDefault::class)
-    fun create(networkMonitor: NetworkMonitor): ApiService {
+    fun create(): ApiService {
         val httpInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)
                 HttpLoggingInterceptor.Level.BODY

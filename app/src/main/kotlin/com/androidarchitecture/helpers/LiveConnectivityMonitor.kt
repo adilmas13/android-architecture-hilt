@@ -1,4 +1,4 @@
-package com.androidarchitecture.utilities
+package com.androidarchitecture.helpers
 
 import android.content.Context
 import android.net.ConnectivityManager
