@@ -10,6 +10,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -28,6 +29,15 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitApiService(networkMonitor: NetworkMonitor) =
-        ApiServiceBuilder(networkMonitor).create()
+    fun provideRetrofitApiService(networkMonitor: NetworkMonitor, @BaseUrl baseUrl: String) =
+        ApiServiceBuilder(networkMonitor, baseUrl).build()
+
+    @Provides
+    @Singleton
+    @BaseUrl
+    fun provideBaseUrl() = "https://reqres.in/"
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class BaseUrl
 }

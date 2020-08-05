@@ -14,18 +14,18 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class ApiServiceBuilder @Inject constructor(
-    private val networkMonitor: NetworkMonitor
+    private val networkMonitor: NetworkMonitor,
+    private val baseUrl:String
 ) {
 
     companion object {
         private const val CONNECT_TIMEOUT_SECONDS = 30L
         private const val READ_TIMEOUT_SECONDS = 30L
-        private const val BASE_URL = "https://reqres.in/"
         private val contentType = "application/json".toMediaType()
     }
 
     @OptIn(UnstableDefault::class)
-    fun create(): ApiService {
+    fun build(): ApiService {
         val httpInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)
                 HttpLoggingInterceptor.Level.BODY
@@ -42,7 +42,7 @@ class ApiServiceBuilder @Inject constructor(
         val json = Json(JsonConfiguration(ignoreUnknownKeys = true))
         return Retrofit.Builder()
             .client(builder.build())
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(ApiService::class.java)
