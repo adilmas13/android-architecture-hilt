@@ -4,11 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlinx-serialization'
 apply from: '../project_settings.gradle'
 apply from: "../ktlint.gradle"
-apply plugin: 'org.jetbrains.dokka'
-
-tasks.dokkaHtml {
-    outputDirectory = "$buildDir/docs"
-}
+apply from: "../dokka.gradle"
 
 android {
     compileSdkVersion project.compileSdkVersion
