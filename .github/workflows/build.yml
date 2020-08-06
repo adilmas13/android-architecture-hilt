@@ -52,7 +52,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: app/build/documentation/app # The folder the action should deploy.
+          FOLDER: app/build/documentation # The folder the action should deploy.
    
   apk:
     name: Generate APK
