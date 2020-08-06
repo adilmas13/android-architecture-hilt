@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlinx-serialization'
 apply from: '../project_settings.gradle'
 apply from: "../ktlint.gradle"
+apply from: "../dokka.gradle"
 
 android {
     compileSdkVersion project.compileSdkVersion

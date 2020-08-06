@@ -6,11 +6,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply from: '../project_settings.gradle'
 apply from: "../ktlint.gradle"
-apply plugin: 'org.jetbrains.dokka'
-
-tasks.dokkaHtml {
-    outputDirectory = "$buildDir/documentation"
-}
+apply from: "../dokka.gradle"
 
 android {
     compileSdkVersion project.compileSdkVersion

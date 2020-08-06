@@ -1,0 +1,5 @@
+apply plugin: 'org.jetbrains.dokka'
+
+tasks.dokkaHtml {
+    outputDirectory = "$buildDir/docs"
+}
