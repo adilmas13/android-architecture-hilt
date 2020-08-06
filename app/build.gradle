@@ -9,7 +9,7 @@ apply from: "../ktlint.gradle"
 apply plugin: 'org.jetbrains.dokka'
 
 tasks.dokkaHtml {
-    outputDirectory = "$buildDir/documentation"
+    outputDirectory = "$buildDir/docs"
 }
 
 android {
