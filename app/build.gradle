@@ -51,7 +51,7 @@ android {
             }
         }
     }
-    compileOptions { // adding Java 8 bytecode since Coil requires it
+    compileOptions { // adding Java 8 bytecode since Coil, Hilt requires it
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
