@@ -8,7 +8,19 @@ apply from: '../project_settings.gradle'
 apply from: "../ktlint.gradle"
 apply from: "../dokka.gradle"
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
     compileSdkVersion project.compileSdkVersion
     buildToolsVersion project.buildToolsVersion
     defaultConfig {
@@ -25,30 +37,23 @@ android {
         debug {
             debuggable true
             applicationIdSuffix ".debug"
+            versionNameSuffix '-dev'
             buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
-            applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "Android-Architecture-debug_v${versionName}.apk"
-                }
-            }
         }
-//        releaseDebug {
-//            debuggable true
-//            shrinkResources project.enableCodeShrinking
-//            minifyEnabled project.enableProguard
-//            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
-//        }
+        releaseDebug {
+            debuggable true
+            shrinkResources project.enableCodeShrinking
+            minifyEnabled project.enableProguard
+            signingConfig signingConfigs.config
+            buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
+        }
         release {
             debuggable project.enableDebugLogs
             shrinkResources project.enableCodeShrinking
             minifyEnabled project.enableProguard
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
             buildConfigField("String", 'BASE_URL', '"https://reqres.in/"')
-            applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "Android-Architecture_v${versionName}.apk"
-                }
-            }
         }
     }
     compileOptions { // adding Java 8 bytecode since Coil, Hilt requires it
