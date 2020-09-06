@@ -79,7 +79,7 @@ ext {
 
     domainDependencies = [
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
-            kotlinx          : "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0",
+            kotlinx          : "org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC",
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
             coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
             javaX            : "javax.inject:javax.inject:1"
