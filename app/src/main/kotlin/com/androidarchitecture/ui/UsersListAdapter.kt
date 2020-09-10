@@ -2,6 +2,8 @@ package com.androidarchitecture.ui
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.androidarchitecture.R
 import com.androidarchitecture.domain.models.Users
@@ -10,17 +12,28 @@ import com.androidarchitecture.utilities.inflate
 import kotlinx.android.synthetic.main.adapter_user.view.*
 
 class UsersListAdapter(
-    private val list: List<Users>,
     private val imageLoader: ImageLoader,
-    val userClickListener: OnUserClickListener
+    val userClickListener: (Int) -> Unit
 ) :
-    RecyclerView.Adapter<UsersListAdapter.UsersListViewHolder>() {
+    ListAdapter<Users, UsersListAdapter.UsersListViewHolder>(DIFF_UTIL) {
+
+    companion object {
+        var DIFF_UTIL = object : DiffUtil.ItemCallback<Users>() {
+            override fun areItemsTheSame(oldItem: Users, newItem: Users) =
+                oldItem == newItem
+
+            override fun areContentsTheSame(oldItem: Users, newItem: Users) =
+                oldItem.id == newItem.id &&
+                        oldItem.name == newItem.name &&
+                        oldItem.image == newItem.image
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UsersListViewHolder(parent.inflate(R.layout.adapter_user))
 
     override fun onBindViewHolder(holder: UsersListViewHolder, position: Int) {
-        val data = list[position]
+        val data = currentList[position]
         holder.itemView.apply {
             tvUsername.text = data.name
             when (position % 5) {
@@ -33,15 +46,11 @@ class UsersListAdapter(
         }
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = currentList.size
 
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.setOnClickListener { userClickListener.onUserClicked(list[layoutPosition].id) }
+            itemView.setOnClickListener { userClickListener(currentList[layoutPosition].id) }
         }
     }
-}
-
-interface OnUserClickListener {
-    fun onUserClicked(id: Int)
 }
