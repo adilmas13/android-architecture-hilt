@@ -3,9 +3,8 @@ package com.androidarchitecture.data.retrofit
 import com.androidarchitecture.data.BuildConfig
 import com.androidarchitecture.domain.NetworkMonitor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,7 +23,7 @@ class ApiServiceBuilder @Inject constructor(
         private val contentType = "application/json".toMediaType()
     }
 
-    @OptIn(UnstableDefault::class)
+    @ExperimentalSerializationApi
     fun build(): ApiService {
         val httpInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)
@@ -32,14 +31,13 @@ class ApiServiceBuilder @Inject constructor(
             else
                 HttpLoggingInterceptor.Level.NONE
         }
-
         val builder = OkHttpClient.Builder()
             .addInterceptor(httpInterceptor)
             .connectTimeout(CONNECT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .addInterceptor(ApiInterceptor())
             .addInterceptor(InternetConnectivityInterceptor(networkMonitor))
-        val json = Json(JsonConfiguration(ignoreUnknownKeys = true))
+        val json = Json { ignoreUnknownKeys = true }
         return Retrofit.Builder()
             .client(builder.build())
             .baseUrl(baseUrl)
