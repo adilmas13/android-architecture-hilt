@@ -24,7 +24,7 @@ class UsersListFragment : BaseFragment<UsersListViewModel>() {
     }
 
     private fun initViews() {
-        rvUsers.adapter = UsersListAdapter(imageLoader) {id ->
+        rvUsers.adapter = UsersListAdapter(imageLoader) { id ->
             val action = UsersListFragmentDirections.showUserDetails(id)
             findNavController().navigate(action)
         }
