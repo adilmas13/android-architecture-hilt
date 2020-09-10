@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.androidarchitecture.utilities.showToast
 
@@ -42,7 +43,7 @@ abstract class BaseFragment<M : ViewModel> : Fragment() {
     }
 
     private fun generateViewModel() {
-        viewModel = ViewModelProviders.of(this).get(createViewModel())
+        viewModel = ViewModelProvider(this).get(createViewModel())
     }
 
     fun showMessage(message: String) {
