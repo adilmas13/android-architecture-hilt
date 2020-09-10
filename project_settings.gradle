@@ -70,7 +70,6 @@ ext {
             retrofit         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitConverter: "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.7.0",
             okHttp3Logging   : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
-            gson             : "com.google.code.gson:gson:2.8.6",
             javaX            : "javax.inject:javax.inject:1"
     ]
 
