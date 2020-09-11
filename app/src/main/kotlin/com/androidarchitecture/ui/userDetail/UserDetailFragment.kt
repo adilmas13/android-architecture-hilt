@@ -5,7 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
-import com.androidarchitecture.domain.models.Users
+import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.utilities.ImageLoader
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.user_detail_fragment.*
@@ -32,7 +32,7 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
         }
     }
 
-    private fun showDetails(it: Users) {
+    private fun showDetails(it: User) {
         imageLoader.loadImage(ivUserProfile, it.image)
         tvUsername.text = it.name
     }

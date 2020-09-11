@@ -5,7 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.androidarchitecture.domain.models.Users
+import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.domain.usecase.UserDetailUseCase
 
 class UserDetailViewModel @ViewModelInject constructor(
@@ -17,7 +17,7 @@ class UserDetailViewModel @ViewModelInject constructor(
 
     val loading = MutableLiveData<Boolean>()
 
-    val userData = MutableLiveData<Users>()
+    val userData = MutableLiveData<User>()
 
     val error = MutableLiveData<String>()
 
@@ -26,7 +26,7 @@ class UserDetailViewModel @ViewModelInject constructor(
         useDetailUseCase.getUserDetail(userId, ::onApiSuccess, ::onApiFailure)
     }
 
-    private fun onApiSuccess(user: Users) {
+    private fun onApiSuccess(user: User) {
         loading.value = false
         userData.value = user
     }

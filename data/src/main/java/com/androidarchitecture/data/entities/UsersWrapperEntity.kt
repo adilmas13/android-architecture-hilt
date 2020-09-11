@@ -1,6 +1,6 @@
 package com.androidarchitecture.data.entities
 
-import com.androidarchitecture.domain.models.Users
+import com.androidarchitecture.domain.models.User
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -17,7 +17,7 @@ data class UsersResponse(
     @SerialName("last_name") val last_name: String,
     @SerialName("avatar") val avatar: String
 ) {
-    fun toUser() = Users(
+    fun toUser() = User(
         id,
         "$first_name $last_name",
         avatar

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.androidarchitecture.R
-import com.androidarchitecture.domain.models.Users
+import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.utilities.ImageLoader
 import com.androidarchitecture.utilities.inflate
 import kotlinx.android.synthetic.main.adapter_user.view.*
@@ -15,14 +15,14 @@ class UsersListAdapter(
     private val imageLoader: ImageLoader,
     val userClickListener: (Int) -> Unit
 ) :
-    ListAdapter<Users, UsersListAdapter.UsersListViewHolder>(DIFF_UTIL) {
+    ListAdapter<User, UsersListAdapter.UsersListViewHolder>(DIFF_UTIL) {
 
     companion object {
-        var DIFF_UTIL = object : DiffUtil.ItemCallback<Users>() {
-            override fun areItemsTheSame(oldItem: Users, newItem: Users) =
+        var DIFF_UTIL = object : DiffUtil.ItemCallback<User>() {
+            override fun areItemsTheSame(oldItem: User, newItem: User) =
                 oldItem == newItem
 
-            override fun areContentsTheSame(oldItem: Users, newItem: Users) =
+            override fun areContentsTheSame(oldItem: User, newItem: User) =
                 oldItem.id == newItem.id &&
                     oldItem.name == newItem.name &&
                     oldItem.image == newItem.image
