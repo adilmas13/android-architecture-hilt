@@ -12,7 +12,7 @@ Dependencies in Use
 - Hilt (Dependecy Injection)
 - LiveData + ViewModel
 - Coroutines
-- Gson (to be removed) + Kotlinx serialization (Json Serialization Deserialization)
+- Kotlinx serialization (Json Serialization Deserialization)
 - Retrofit (Rest API Library)
 - Coil (Image Loader)
 
