@@ -34,8 +34,8 @@ class UserDetailViewModel @ViewModelInject constructor(
             useDetailUseCase.getUserDetail(userId)
                 .onStart { loading.value = true }
                 .onCompletion { loading.value = false }
-                .catch { error.value = it.message }     // on error
-                .collect { userData.value = it }        // on success
+                .catch { error.value = it.message } // on error
+                .collect { userData.value = it } // on success
         }
     }
 }

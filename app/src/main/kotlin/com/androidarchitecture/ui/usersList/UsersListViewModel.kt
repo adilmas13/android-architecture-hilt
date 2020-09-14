@@ -29,8 +29,8 @@ class UsersListViewModel @ViewModelInject constructor(
                 .getUsers()
                 .onStart { loading.value = true }
                 .onCompletion { loading.value = false }
-                .catch {  errorMessage.value = it.message }     // on error
-                .collect {data.value = it.toMutableList() }     // on success
+                .catch { errorMessage.value = it.message } // on error
+                .collect { data.value = it.toMutableList() } // on success
         }
     }
 }

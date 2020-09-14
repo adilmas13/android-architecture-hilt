@@ -2,7 +2,6 @@ package com.androidarchitecture.data.repository.base
 
 import com.androidarchitecture.data.entities.ApiResponseWrapperEntity
 import com.androidarchitecture.domain.exceptions.ApiException
-import com.androidarchitecture.domain.models.Result
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.decodeFromString
@@ -12,7 +11,7 @@ import retrofit2.Response
 open class BaseRestApiRepository {
 
     private val json = Json { ignoreUnknownKeys = true }
-    
+
     internal fun <T, R> parseResult(response: Response<T>, parser: (T) -> R): Flow<R> {
         return flow {
             if (response.isSuccessful && response.body() !== null)
