@@ -11,7 +11,7 @@ Reference : https://antonioleiva.com/clean-architecture-android/
 Dependencies in Use
 - Hilt (Dependecy Injection)
 - LiveData + ViewModel
-- Coroutines
+- Coroutines + Flow
 - Kotlinx serialization (Json Serialization Deserialization)
 - Retrofit (Rest API Library)
 - Coil (Image Loader)
