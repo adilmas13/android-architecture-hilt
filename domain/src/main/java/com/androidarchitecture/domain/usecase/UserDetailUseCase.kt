@@ -3,6 +3,7 @@ package com.androidarchitecture.domain.usecase
 import com.androidarchitecture.domain.base.UseCase
 import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.domain.repository.UserRepository
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
@@ -14,8 +15,8 @@ class UserDetailUseCase @Inject constructor(
 
     override suspend fun makeRequest() = repository.getUserDetail(id)
 
-    fun getUserDetail(id: Int, success: (User) -> Unit, failure: (Exception) -> Unit) {
+    suspend fun getUserDetail(id: Int): Flow<User> {
         this.id = id
-        execute(success, failure)
+        return execute()
     }
 }

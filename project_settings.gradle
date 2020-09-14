@@ -35,7 +35,7 @@ ext {
 
     final retrofitVersion = '2.8.1'
     final okHttpVersion = '4.5.0'
-    final coroutinesVersion = "1.3.5"
+    final coroutinesVersion = "1.3.9"
     final lifecycle_version = "2.2.0"
     final multidex_version = "2.0.1"
     final nav_version = "2.2.1"
@@ -104,7 +104,8 @@ ext {
             retrofit         : dependencies.retrofit,
             retrofitConverter: dependencies.retrofitConverter,
             okHttp3Logging   : dependencies.okHttp3Logging,
-            javaX            : dependencies.javaX
+            javaX            : dependencies.javaX,
+            coroutines       : dependencies.coroutines,
     ]
 
     domainDependencies = [
