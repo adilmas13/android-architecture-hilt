@@ -20,7 +20,7 @@ class UserDetailViewModel @ViewModelInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val userId = savedStateHandle.get<Int>("userId") ?: -1
+    private val user = savedStateHandle.get<User>("user")
 
     val loading = MutableLiveData<Boolean>()
 
@@ -30,8 +30,9 @@ class UserDetailViewModel @ViewModelInject constructor(
 
     @ExperimentalCoroutinesApi
     fun getUserDetails() {
+        if (user == null) return
         viewModelScope.launch {
-            useDetailUseCase.getUserDetail(userId)
+            useDetailUseCase.getUserDetail(user.id)
                 .onStart { loading.value = true }
                 .onCompletion { loading.value = false }
                 .catch { error.value = it.message } // on error

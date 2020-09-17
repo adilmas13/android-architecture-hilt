@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.adapter_user.view.*
 
 class UsersListAdapter(
     private val imageLoader: ImageLoader,
-    val userClickListener: (Int) -> Unit
+    val userClickListener: (User) -> Unit
 ) :
     ListAdapter<User, UsersListAdapter.UsersListViewHolder>(DIFF_UTIL) {
 
@@ -50,7 +50,7 @@ class UsersListAdapter(
 
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.setOnClickListener { userClickListener(currentList[layoutPosition].id) }
+            itemView.setOnClickListener { userClickListener(currentList[layoutPosition]) }
         }
     }
 }

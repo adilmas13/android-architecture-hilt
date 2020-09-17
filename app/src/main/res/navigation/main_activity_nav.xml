@@ -20,7 +20,7 @@
         android:label="user_detail_fragment"
         tools:layout="@layout/user_detail_fragment" >
         <argument
-            android:name="userId"
-            app:argType="integer" />
+            android:name="user"
+            app:argType="com.androidarchitecture.domain.models.User" />
     </fragment>
 </navigation>
