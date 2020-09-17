@@ -14,3 +14,5 @@
 .cxx
 
 .idea/
+buildSrc/.gradle
+buildSrc/build
