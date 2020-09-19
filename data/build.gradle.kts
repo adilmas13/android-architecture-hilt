@@ -44,7 +44,6 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation (project(":domain"))
-    DataDependencies.d.forEach { implementation(it) }
- //   implementation dataDependencies.values()
-  //  implementation unitTestDependencies.values()
+    dataDependencies.forEach { (_, v) -> implementation(v) }
+    unitTestDependencies.forEach { (_, v) -> testImplementation(v) }
 }

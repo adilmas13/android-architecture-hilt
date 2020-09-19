@@ -86,11 +86,9 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":data"))
     implementation(project(":domain"))
-    /* implementation appDependencies.values()
-     kapt annotationProcessingDependencies.values()
-     testImplementation unitTestDependencies.values()
-     androidTestImplementation uiTestDependencies.values()*/
 
-    AppDependencies.now.forEach { implementation(it) }
-    AnnotationProcessingDependencies.now.forEach { kapt(it) }
+    appDependencies.forEach { (_, v) -> implementation(v) }
+    annotationProcessingDependencies.forEach { (_, v) -> kapt(v) }
+    unitTestDependencies.forEach { (_, v) -> testImplementation(v) }
+    uiTestDependencies.forEach { (_, v) -> androidTestImplementation(v) }
 }

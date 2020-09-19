@@ -45,9 +45,9 @@ const val retrofitVersion = "2.8.1"
 const val okHttpVersion = "4.5.0"
 const val coroutinesVersion = "1.3.9"
 const val lifecycleVersion = "2.2.0"
-const val multidexVersion = "2.0.1"
+const val multiDexVersion = "2.0.1"
 const val coilVersion = "0.13.0"
-const val hiltviewmodelVersion = "1.0.0-alpha02"
+const val hiltViewModelVersion = "1.0.0-alpha02"
 
 object Dependencies {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
@@ -60,14 +60,14 @@ object Dependencies {
     const val designSupport = "com.google.android.material:material:1.2.0-alpha05"
     const val navigation = "androidx.navigation:navigation-fragment-ktx:$navVersion"
     const val navigation_ui = "androidx.navigation:navigation-ui-ktx:$navVersion"
-    const val multidex = "androidx.multidex:multidex:$multidexVersion"
+    const val multidex = "androidx.multidex:multidex:$multiDexVersion"
     const val coil = "io.coil-kt:coil:$coilVersion"
     const val lifeCycleCompiler = "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
     const val arch = "android.arch.lifecycle:extensions:1.1.1"
     const val hilt = "com.google.dagger:hilt-android:$hiltVersion"
-    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:$hiltviewmodelVersion"
+    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModelVersion"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    const val hiltViewModelCompiler = "androidx.hilt:hilt-compiler:$hiltviewmodelVersion"
+    const val hiltViewModelCompiler = "androidx.hilt:hilt-compiler:$hiltViewModelVersion"
     const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
     const val retrofitConverter =
         "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.7.0"
@@ -85,65 +85,51 @@ object TestDependencies {
     const val espresso = "androidx.test.espresso:espresso-core:3.2.0"
 }
 
-object AppDependencies {
-    const val kotlin = Dependencies.kotlin
-    const val core = Dependencies.core
-    const val appcompat = Dependencies.appcompat
-    const val constraintLayout = Dependencies.constraintLayout
-    const val viewPager = Dependencies.viewPager
-    const val recyclerView = Dependencies.recyclerView
-    const val cardView = Dependencies.cardView
-    const val designSupport = Dependencies.designSupport
-    const val navigation = Dependencies.navigation
-    const val navigation_ui = Dependencies.navigation_ui
-    const val multidex = Dependencies.multidex
-    const val coil = Dependencies.coil
-    const val lifeCycleCompiler = Dependencies.lifeCycleCompiler
-    const val arch = Dependencies.arch
-    const val hilt = Dependencies.hilt
-    const val hiltViewModel = Dependencies.hiltViewModel
+val appDependencies = mapOf(
+    "kotlin" to Dependencies.kotlin,
+    "core" to Dependencies.core,
+    "appcompat" to Dependencies.appcompat,
+    "constraintLayout" to Dependencies.constraintLayout,
+    "viewPager" to Dependencies.viewPager,
+    "recyclerView" to Dependencies.recyclerView,
+    "cardView" to Dependencies.cardView,
+    "designSupport" to Dependencies.designSupport,
+    "navigation" to Dependencies.navigation,
+    "navigation_ui" to Dependencies.navigation_ui,
+    "multidex" to Dependencies.multidex,
+    "coil" to Dependencies.coil,
+    "lifeCycleCompiler" to Dependencies.lifeCycleCompiler,
+    "arch" to Dependencies.arch,
+    "hilt" to Dependencies.hilt,
+    "hiltViewModel" to Dependencies.hiltViewModel
+)
 
-    val now = listOf(
-        kotlin, core, appcompat, constraintLayout, viewPager, recyclerView, cardView, designSupport, navigation, navigation_ui, multidex, coil, lifeCycleCompiler,
-        arch,
-        hilt, hiltViewModel
-    )
-}
+val annotationProcessingDependencies = mapOf(
+    "hiltCompiler" to Dependencies.hiltCompiler,
+    "hiltViewModelViewModelCompiler" to Dependencies.hiltViewModelCompiler
+)
 
-object AnnotationProcessingDependencies {
-    const val hiltCompiler = Dependencies.hiltCompiler
-    const val hiltViewModelViewModelCompiler = Dependencies.hiltViewModelCompiler
+val dataDependencies = mapOf(
+    "retrofit" to Dependencies.retrofit,
+    "retrofitConverter" to Dependencies.retrofitConverter,
+    "okHttp3Logging" to Dependencies.okHttp3Logging,
+    "javaX" to Dependencies.javaX,
+    "coroutines" to Dependencies.coroutines
+)
 
-    val now = listOf(
-        hiltCompiler, hiltViewModelViewModelCompiler
-    )
-}
+val domainDependencies = mapOf(
+    "kotlin" to Dependencies.kotlin,
+    "kotlinxSerialization" to Dependencies.kotlinxSerialization,
+    "coroutines" to Dependencies.coroutines,
+    "coroutinesAndroid" to Dependencies.coroutinesAndroid,
+    "javaX" to Dependencies.javaX
+)
 
-object DataDependencies {
-    const val retrofit = Dependencies.retrofit
-    const val retrofitConverter = Dependencies.retrofitConverter
-    const val okHttp3Logging = Dependencies.okHttp3Logging
-    const val javaX = Dependencies.javaX
-    const val coroutines = Dependencies.coroutines
+val unitTestDependencies = mapOf(
+    "junit" to TestDependencies.junit
+)
 
-    val d = listOf(retrofit, retrofitConverter, okHttp3Logging, javaX, coroutines)
-}
-
-object DomainDependencies {
-    const val kotlin = Dependencies.kotlin
-    const val kotlinxSerialization = Dependencies.kotlinxSerialization
-    const val coroutines = Dependencies.coroutines
-    const val coroutinesAndroid = Dependencies.coroutinesAndroid
-    const val javaX = Dependencies.javaX
-
-    val d = listOf(kotlin, kotlinxSerialization, coroutines, coroutinesAndroid, javaX)
-}
-
-object UnitTestDependencies {
-    const val junit = TestDependencies.junit
-}
-
-object UiTestDependencies {
-    const val runner = TestDependencies.runner
-    const val espresso = TestDependencies.espresso
-}
+val uiTestDependencies = mapOf(
+    "runner" to TestDependencies.runner,
+    "espresso" to TestDependencies.espresso
+)

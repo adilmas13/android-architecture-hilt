@@ -13,5 +13,5 @@ plugins {
 
 dependencies {
   //  implementation domainDependencies.values()
-  DomainDependencies.d.forEach({implementation(it)})
+  domainDependencies.forEach { (_, v) -> implementation(v) }
 }
