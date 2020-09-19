@@ -1,12 +1,4 @@
-//apply plugin: 'com.android.application'
-//apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'kotlin-kapt'
-//apply plugin: 'androidx.navigation.safeargs'
-//apply plugin: 'dagger.hilt.android.plugin'
-//apply from: "../ktlint.gradle"
-//apply from: "../dokka.gradle"
-
+// TODO: ktlint, dotta
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -16,19 +8,22 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-/*def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))*/
-
 android {
-/*    signingConfigs {
-        config {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+    signingConfigs{
+        getByName("debug"){
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
         }
-    }*/
+        create("release") {
+            keyAlias = "android"
+            keyPassword = "architecture"
+            storeFile = file("../keystore")
+            storePassword = "android"
+        }
+    }
+
     compileSdkVersion(AppConfig.compileSdkVersion)
     buildToolsVersion(AppConfig.buildToolsVersion)
     defaultConfig {
@@ -43,14 +38,14 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isDebuggable = false
-            isShrinkResources = true
-            isMinifyEnabled = true
+            isDebuggable = AppConfig.enableDebugLogs
+            isShrinkResources = AppConfig.enableCodeShrinking
+            isMinifyEnabled = AppConfig.enableProguard
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-//            signingConfig signingConfigs.config
+            signingConfig = signingConfigs.getByName("release")
             buildConfigField("String", "BASE_URL", "\"https://reqres.in/\"")
         }
         getByName("debug") {
@@ -64,18 +59,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-//    sourceSets {
-//        main.java.srcDirs += 'src/main/kotlin'
-//        test.java.srcDirs += 'src/test/kotlin'
-//    }
-//    sourceSets {
-////        main {
-////            java.srcDir("src/main/kotlin")
-////        }
-////        test {
-////            java.srcDir("src/test/kotlin")
-////        }
-//    }
+
+    sourceSets {
+        getByName("main") { java.srcDirs(file("./src/main/kotlin")) }
+        getByName("test") { java.srcDirs(file("src/test/kotlin")) }
+    }
 
     kotlinOptions {
         jvmTarget = "1.8"
@@ -86,7 +74,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":data"))
     implementation(project(":domain"))
-
     appDependencies.forEach { (_, v) -> implementation(v) }
     annotationProcessingDependencies.forEach { (_, v) -> kapt(v) }
     unitTestDependencies.forEach { (_, v) -> testImplementation(v) }

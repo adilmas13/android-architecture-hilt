@@ -1,12 +1,6 @@
 //#############################
 // GLOBAL PROJECT SETTINGS
 //#############################
-/*
-*     const val versionCode =
-        AppVersion.versionMajor * 10000
-    + AppVersion.versionMinor * 100
-    + AppVersion.versionPatch
-* */
 
 const val kotlinVersion = "1.4.10"
 const val gradleVersion = "4.0.1"

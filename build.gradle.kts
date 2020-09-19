@@ -4,6 +4,9 @@
 //plugins{
 //    id("org.jetbrains.dokka")
 //}
+plugins {
+    id("org.jetbrains.dokka") version "1.4.0"
+}
 buildscript {
 
     repositories {
