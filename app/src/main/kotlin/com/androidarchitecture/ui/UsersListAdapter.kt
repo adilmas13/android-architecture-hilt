@@ -36,6 +36,7 @@ class UsersListAdapter(
         val data = currentList[position]
         holder.itemView.apply {
             tvUsername.text = data.name
+            tvEmail.text = data.email
             when (position % 5) {
                 1 -> imageLoader.loadCircularImage(ivUserProfile, data.image)
                 2 -> imageLoader.loadRoundedCornersImage(ivUserProfile, data.image, 15f)

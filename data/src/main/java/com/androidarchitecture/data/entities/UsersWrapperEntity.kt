@@ -20,6 +20,7 @@ data class UsersResponse(
     fun toUser() = User(
         id,
         "$first_name $last_name",
-        avatar
+        avatar,
+        email
     )
 }

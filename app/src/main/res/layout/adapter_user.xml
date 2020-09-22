@@ -17,6 +17,7 @@
         <ImageView
             android:id="@+id/ivUserProfile"
             android:layout_width="60dp"
+            android:src="@drawable/ic_launcher_background"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:contentDescription="@string/user_profile"
@@ -28,13 +29,24 @@
             android:id="@+id/tvUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:textColor="@color/on_background"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvEmail"
             app:layout_constraintLeft_toRightOf="@+id/ivUserProfile"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivUserProfile"
+            tools:text="Jack Sparrow" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/on_background_2"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivUserProfile"
+            app:layout_constraintLeft_toLeftOf="@+id/tvUsername"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername"
             tools:text="Jack Sparrow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
