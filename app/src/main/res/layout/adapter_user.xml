@@ -17,37 +17,56 @@
         <ImageView
             android:id="@+id/ivUserProfile"
             android:layout_width="60dp"
-            android:src="@drawable/ic_launcher_background"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:contentDescription="@string/user_profile"
+            android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvUsername"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:lines="1"
             android:textColor="@color/on_background"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvEmail"
-            app:layout_constraintLeft_toRightOf="@+id/ivUserProfile"
+            app:layout_constraintEnd_toStartOf="@+id/ivArrow"
+            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
             app:layout_constraintTop_toTopOf="@+id/ivUserProfile"
             tools:text="Jack Sparrow" />
 
         <TextView
             android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
             android:textColor="@color/on_background_2"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/ivUserProfile"
-            app:layout_constraintLeft_toLeftOf="@+id/tvUsername"
+            app:layout_constraintEnd_toEndOf="@+id/tvUsername"
+            app:layout_constraintStart_toStartOf="@+id/tvUsername"
             app:layout_constraintTop_toBottomOf="@+id/tvUsername"
             tools:text="Jack Sparrow" />
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/go_ahead"
+            android:src="@drawable/ic_right_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/on_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
