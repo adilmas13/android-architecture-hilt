@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#3399ff</color>
     <color name="colorAccent">#3399ff</color>
     <color name="background">#ffffff</color>
-    <color name="surface">#eeeeee</color>
+    <color name="surface">#fafafa</color>
     <color name="on_background">#111111</color>
     <color name="on_background_2">#9a9b9c</color>
 </resources>
