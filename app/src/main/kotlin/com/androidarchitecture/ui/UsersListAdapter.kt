@@ -24,8 +24,8 @@ class UsersListAdapter(
 
             override fun areContentsTheSame(oldItem: User, newItem: User) =
                 oldItem.id == newItem.id &&
-                    oldItem.name == newItem.name &&
-                    oldItem.image == newItem.image
+                        oldItem.name == newItem.name &&
+                        oldItem.image == newItem.image
         }
     }
 
@@ -33,18 +33,7 @@ class UsersListAdapter(
         UsersListViewHolder(parent.inflate(R.layout.adapter_user))
 
     override fun onBindViewHolder(holder: UsersListViewHolder, position: Int) {
-        val data = currentList[position]
-        holder.itemView.apply {
-            tvUsername.text = data.name
-            tvEmail.text = data.email
-            when (position % 5) {
-                1 -> imageLoader.loadCircularImage(ivUserProfile, data.image)
-                2 -> imageLoader.loadRoundedCornersImage(ivUserProfile, data.image, 15f)
-                3 -> imageLoader.loadBlurImage(ivUserProfile, data.image, 15f, 1f)
-                4 -> imageLoader.loadGreyScaleImage(ivUserProfile, data.image)
-                else -> imageLoader.loadImage(ivUserProfile, data.image)
-            }
-        }
+        holder.bind(currentList[position])
     }
 
     override fun getItemCount() = currentList.size
@@ -52,6 +41,14 @@ class UsersListAdapter(
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener { userClickListener(currentList[layoutPosition]) }
+        }
+
+        fun bind(user: User) {
+            itemView.apply {
+                tvUsername.text = user.name
+                tvEmail.text = user.email
+                imageLoader.loadCircularImage(ivUserProfile, user.image)
+            }
         }
     }
 }
