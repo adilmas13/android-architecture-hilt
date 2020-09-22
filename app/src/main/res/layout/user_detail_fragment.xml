@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         android:orientation="vertical">
 
         <ImageView
@@ -20,6 +21,7 @@
         <TextView
             android:id="@+id/tvUsername"
             android:layout_width="match_parent"
+            android:textColor="@color/on_background"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
