@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Android Architecture</string>
     <string name="user_profile">User profile</string>
+    <string name="toggle_theme">Toggle Theme</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
