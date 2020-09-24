@@ -24,8 +24,8 @@ class UsersListAdapter(
 
             override fun areContentsTheSame(oldItem: User, newItem: User) =
                 oldItem.id == newItem.id &&
-                        oldItem.name == newItem.name &&
-                        oldItem.image == newItem.image
+                    oldItem.name == newItem.name &&
+                    oldItem.image == newItem.image
         }
     }
 

@@ -27,7 +27,6 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
         else -> super.onOptionsItemSelected(item)
     }
 
-
     private fun toggleTheme(): Boolean {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

@@ -5,7 +5,7 @@ import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class ArchitectureApplication : MultiDexApplication(){
+class ArchitectureApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
