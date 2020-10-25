@@ -2,10 +2,7 @@ package com.androidarchitecture.ui.userDetail
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.domain.usecase.UserDetailUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -22,21 +19,24 @@ class UserDetailViewModel @ViewModelInject constructor(
 
     private val user = savedStateHandle.get<User>("user")
 
-    val loading = MutableLiveData<Boolean>()
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> = _loading
 
-    val userData = MutableLiveData<User>()
+    private val _userData = MutableLiveData<User>()
+    val userData: LiveData<User> = _userData
 
-    val error = MutableLiveData<String>()
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
 
     @ExperimentalCoroutinesApi
     fun getUserDetails() {
         if (user == null) return
         viewModelScope.launch {
             useDetailUseCase.getUserDetail(user.id)
-                .onStart { loading.value = true }
-                .onCompletion { loading.value = false }
-                .catch { error.value = it.message } // on error
-                .collect { userData.value = it } // on success
+                .onStart { _loading.value = true }
+                .onCompletion { _loading.value = false }
+                .catch { _error.value = it.message } // on error
+                .collect { _userData.value = it } // on success
         }
     }
 }

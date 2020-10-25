@@ -1,6 +1,7 @@
 package com.androidarchitecture.ui.usersList
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,21 +17,25 @@ import kotlinx.coroutines.launch
 class UsersListViewModel @ViewModelInject constructor(
     private val usersListUseCase: UsersListUseCase
 ) : ViewModel() {
-    var data: MutableLiveData<MutableList<User>> = MutableLiveData()
 
-    var loading: MutableLiveData<Boolean> = MutableLiveData()
+    private val _data: MutableLiveData<MutableList<User>> = MutableLiveData()
+    val data: LiveData<MutableList<User>> = _data
 
-    var errorMessage: MutableLiveData<String> = MutableLiveData()
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> = _loading
+
+    private val _errorMessage: MutableLiveData<String> = MutableLiveData()
+    val errorMessage: LiveData<String> = _errorMessage
 
     @ExperimentalCoroutinesApi
     fun getUsers() {
         viewModelScope.launch {
             usersListUseCase
                 .getUsers()
-                .onStart { loading.value = true }
-                .onCompletion { loading.value = false }
-                .catch { errorMessage.value = it.message } // on error
-                .collect { data.value = it.toMutableList() } // on success
+                .onStart { _loading.value = true }
+                .onCompletion { _loading.value = false }
+                .catch { _errorMessage.value = it.message } // on error
+                .collect { _data.value = it.toMutableList() } // on success
         }
     }
 }

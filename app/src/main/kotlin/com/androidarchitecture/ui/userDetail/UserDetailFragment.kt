@@ -26,9 +26,9 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
 
     override fun subscribeToObservers() {
         viewModel.apply {
-            loading.observe(this@UserDetailFragment, Observer { handleLoaderVisibility(it) })
-            error.observe(this@UserDetailFragment, Observer { showMessage(it) })
-            userData.observe(this@UserDetailFragment, Observer { showDetails(it) })
+            loading.observe(this@UserDetailFragment, { handleLoaderVisibility(it) })
+            error.observe(this@UserDetailFragment, { showMessage(it) })
+            userData.observe(this@UserDetailFragment, { showDetails(it) })
         }
     }
 
