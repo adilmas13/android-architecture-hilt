@@ -2,7 +2,6 @@ package com.androidarchitecture.ui.userDetail
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
 import com.androidarchitecture.domain.models.User
