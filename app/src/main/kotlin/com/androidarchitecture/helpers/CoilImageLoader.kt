@@ -1,7 +1,7 @@
 package com.androidarchitecture.helpers
 
 import android.widget.ImageView
-import coil.api.load
+import coil.load
 import coil.transform.BlurTransformation
 import coil.transform.CircleCropTransformation
 import coil.transform.GrayscaleTransformation
