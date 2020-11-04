@@ -3,9 +3,9 @@ package com.androidarchitecture.ui.userDetail
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.domain.usecase.UserDetailUseCase
