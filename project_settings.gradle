@@ -38,7 +38,7 @@ ext {
     final coroutinesVersion = "1.3.9"
     final lifecycle_version = "2.2.0"
     final multidex_version = "2.0.1"
-    final nav_version = "2.2.1"
+    final nav_version = "2.3.1"
     final coil_version = "1.0.0"
     final hiltViewModel_version = "1.0.0-alpha02"
 
