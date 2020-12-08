@@ -8,6 +8,7 @@ import com.androidarchitecture.domain.models.User
 import com.androidarchitecture.utilities.ImageLoader
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.user_detail_fragment.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -16,6 +17,7 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
     @Inject
     lateinit var imageLoader: ImageLoader
 
+    @ExperimentalCoroutinesApi
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.getUserDetails()
