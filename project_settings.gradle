@@ -5,7 +5,7 @@ ext {
     //#############################
 
     kotlin_version = '1.4.21'
-    gradle_version = '4.0.1'
+    gradle_version = '4.1.1'
     nav_version = '2.2.1'
     dokka_version = '1.4.0-rc'
     hilt_version = '2.28-alpha'
