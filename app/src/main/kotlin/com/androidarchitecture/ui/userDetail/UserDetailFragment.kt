@@ -2,6 +2,7 @@ package com.androidarchitecture.ui.userDetail
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.observe
 import com.androidarchitecture.R
 import com.androidarchitecture.base.BaseFragment
 import com.androidarchitecture.domain.models.User
@@ -27,9 +28,9 @@ class UserDetailFragment : BaseFragment<UserDetailViewModel>() {
 
     override fun subscribeToObservers() {
         viewModel.apply {
-            loading.observe(this@UserDetailFragment, { handleLoaderVisibility(it) })
-            error.observe(this@UserDetailFragment, { showMessage(it) })
-            userData.observe(this@UserDetailFragment, { showDetails(it) })
+            loading.observe(this@UserDetailFragment) { handleLoaderVisibility(it) }
+            error.observe(this@UserDetailFragment) { showMessage(it) }
+            userData.observe(this@UserDetailFragment) { showDetails(it) }
         }
     }
 
