@@ -1,12 +1,14 @@
 # Android MVVM Architecture (HILT)
 
+Clean architecture for android using dependency injection.
+Reference : https://antonioleiva.com/clean-architecture-android/
+
 Consist of three main layer (3 Project modules with dependency between them)
 - Presentation - UI (Activity, Fragment, ViewModel, ViewModelFactory)
 - Domain (Usecase)
 - Data - Data source (Rest API, Local DB)
 
-Architecture has no dependency injection library. All injections between layers are done manually using 'inversion of control' concept
-Reference : https://antonioleiva.com/clean-architecture-android/
+Architecture uses dependency injection library HILT.
 
 Dependencies in Use
 - Hilt (Dependecy Injection)
